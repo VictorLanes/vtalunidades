@@ -1,0 +1,1509 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="theme-color" content="#0b1220">
+<meta name="robots" content="noindex, nofollow">
+<title>VTAL Unidades</title>
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='8' fill='%231e52ed'/%3E%3Cpath d='M9 11h14v10H9z' fill='none' stroke='%23fff' stroke-width='2.2' stroke-linejoin='round'/%3E%3Ccircle cx='16' cy='16' r='2.6' fill='%23fff'/%3E%3C/svg%3E">
+<style>
+:root{
+  --ink-950:#0b1220;--ink-900:#111a2e;--ink-800:#1b2640;
+  --brand-50:#eef5ff;--brand-100:#d9e8ff;--brand-200:#bcd6ff;--brand-300:#8ebcff;--brand-500:#3471f8;--brand-600:#1e52ed;--brand-700:#163eda;--brand-800:#1834b0;
+  --s50:#f8fafc;--s100:#f1f5f9;--s200:#e2e8f0;--s300:#cbd5e1;--s400:#94a3b8;--s500:#64748b;--s600:#475569;--s700:#334155;--s800:#1e293b;--s900:#0f172a;
+  --green:#10b981;--green-bg:#ecfdf5;--green-tx:#047857;
+  --red:#ef4444;--red-bg:#fef2f2;--red-tx:#b91c1c;
+  --amber:#f59e0b;--amber-bg:#fffbeb;--amber-tx:#92400e;
+  --violet:#7c3aed;--violet-bg:#f5f3ff;
+  --radius:12px;
+  --font:"Inter",ui-sans-serif,system-ui,-apple-system,"Segoe UI",Roboto,"Helvetica Neue",Arial,sans-serif;
+  --mono:ui-monospace,"SF Mono","Cascadia Code","Roboto Mono",Menlo,Consolas,monospace;
+}
+*,*::before,*::after{box-sizing:border-box}
+html{-webkit-text-size-adjust:100%}
+body{margin:0;font-family:var(--font);font-size:14px;line-height:1.45;color:var(--s900);background:var(--s50);-webkit-font-smoothing:antialiased}
+a{color:inherit;text-decoration:none}
+button{font:inherit;color:inherit;cursor:pointer;background:none;border:0;padding:0}
+input,select,textarea{font:inherit;color:inherit}
+h1,h2,h3,p{margin:0}
+ul,ol{margin:0;padding:0;list-style:none}
+svg.i{width:18px;height:18px;flex-shrink:0;stroke:currentColor;fill:none;stroke-width:2;stroke-linecap:round;stroke-linejoin:round}
+svg.i.sm{width:14px;height:14px}
+svg.i.xs{width:12px;height:12px}
+svg.i.lg{width:24px;height:24px}
+.mono{font-family:var(--mono);font-size:13px;letter-spacing:-.01em}
+.muted{color:var(--s500)}
+.tnum{font-variant-numeric:tabular-nums}
+.sr-only{position:absolute;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip:rect(0,0,0,0);white-space:nowrap;border:0}
+.hidden{display:none!important}
+
+/* ---------- botões / campos ---------- */
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:8px;height:40px;padding:0 14px;border-radius:9px;font-size:14px;font-weight:500;white-space:nowrap;transition:background .15s,border-color .15s,color .15s;border:1px solid transparent}
+.btn:focus-visible{outline:2px solid var(--brand-500);outline-offset:2px}
+.btn:disabled{opacity:.5;pointer-events:none}
+.btn-sm{height:32px;padding:0 10px;font-size:12px}
+.btn-icon{width:32px;padding:0}
+.btn-primary{background:var(--brand-600);color:#fff;box-shadow:0 1px 2px rgba(16,24,40,.08)}
+.btn-primary:hover{background:var(--brand-700)}
+.btn-secondary{background:#fff;color:var(--s700);border-color:var(--s300);box-shadow:0 1px 2px rgba(16,24,40,.05)}
+.btn-secondary:hover{background:var(--s50)}
+.btn-ghost{color:var(--s600)}
+.btn-ghost:hover{background:var(--s100);color:var(--s900)}
+.btn-danger{background:#dc2626;color:#fff}
+.btn-danger:hover{background:#b91c1c}
+.btn-danger-outline{background:#fff;color:#dc2626;border-color:#fecaca}
+.btn-danger-outline:hover{background:var(--red-bg)}
+.btn-block{width:100%}
+.label{display:block;font-size:13px;font-weight:500;color:var(--s700);margin-bottom:6px}
+.input{display:block;width:100%;height:40px;border:1px solid var(--s300);border-radius:9px;background:#fff;padding:0 12px;font-size:14px;box-shadow:0 1px 2px rgba(16,24,40,.04);transition:border-color .15s,box-shadow .15s}
+.input::placeholder{color:var(--s400)}
+.input:focus{outline:none;border-color:var(--brand-500);box-shadow:0 0 0 3px rgba(52,113,248,.15)}
+.input.invalid{border-color:#f87171}
+textarea.input{height:auto;padding:10px 12px;line-height:1.55;resize:vertical}
+select.input{appearance:none;-webkit-appearance:none;padding-right:32px;background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='16' height='16' fill='none' stroke='%2364748b' stroke-width='2' viewBox='0 0 24 24'%3E%3Cpath d='m6 9 6 6 6-6'/%3E%3C/svg%3E");background-repeat:no-repeat;background-position:right 10px center}
+.upper{text-transform:uppercase}
+.hint{margin-top:4px;font-size:12px;color:var(--s500)}
+.field-error{margin-top:4px;font-size:12px;color:#dc2626}
+.input-wrap{position:relative}
+.input-wrap .input{padding-right:40px}
+.input-wrap .eye{position:absolute;top:0;right:0;bottom:0;width:40px;display:grid;place-items:center;color:var(--s400)}
+.input-wrap .eye:hover{color:var(--s600)}
+.input-search{padding-left:36px}
+.search-icon{position:absolute;left:12px;top:50%;transform:translateY(-50%);color:var(--s400);pointer-events:none}
+
+/* ---------- blocos ---------- */
+.card{background:#fff;border:1px solid var(--s200);border-radius:var(--radius);box-shadow:0 1px 2px rgba(16,24,40,.04)}
+.card-head{display:flex;align-items:center;justify-content:space-between;gap:8px;padding:14px 20px;border-bottom:1px solid var(--s100)}
+.card-head h2{font-size:15px;font-weight:600}
+.card-title{display:flex;align-items:center;gap:8px;font-size:14px;font-weight:600;color:var(--s800)}
+.card-title .ico{width:28px;height:28px;border-radius:7px;background:var(--s100);color:var(--s500);display:grid;place-items:center}
+.card-title .ico svg{width:16px;height:16px}
+.pad{padding:24px}
+.divide>*+*{border-top:1px solid var(--s100)}
+.alert{border:1px solid;border-radius:9px;padding:10px 14px;font-size:14px;display:flex;gap:8px;align-items:flex-start}
+.alert-error{border-color:#fecaca;background:var(--red-bg);color:var(--red-tx)}
+.alert-success{border-color:#a7f3d0;background:var(--green-bg);color:var(--green-tx)}
+.alert-info{border-color:var(--brand-200);background:var(--brand-50);color:var(--brand-800)}
+.alert-warning{border-color:#fde68a;background:var(--amber-bg);color:var(--amber-tx)}
+.badge{display:inline-flex;align-items:center;gap:6px;white-space:nowrap;border-radius:999px;padding:2px 8px;font-size:12px;font-weight:500;box-shadow:inset 0 0 0 1px rgba(0,0,0,.08)}
+.badge .dot{width:6px;height:6px;border-radius:50%}
+.st-ativa{background:var(--green-bg);color:var(--green-tx)} .st-ativa .dot,.dot.st-ativa{background:var(--green)}
+.st-inativa{background:var(--s100);color:var(--s600)} .st-inativa .dot,.dot.st-inativa{background:var(--s400)}
+.st-vandalizada{background:var(--red-bg);color:var(--red-tx)} .st-vandalizada .dot,.dot.st-vandalizada{background:var(--red)}
+.st-offline{background:var(--amber-bg);color:var(--amber-tx)} .st-offline .dot,.dot.st-offline{background:var(--amber)}
+.dot{display:inline-block;width:8px;height:8px;border-radius:50%}
+.uf{display:inline-grid;place-items:center;height:24px;min-width:32px;padding:0 6px;border-radius:6px;background:var(--s100);font-size:12px;font-weight:600;color:var(--s700)}
+.tag{display:inline-block;border:1px solid var(--s200);border-radius:6px;padding:1px 6px;font-size:11px;color:var(--s600)}
+.pill{display:inline-block;border-radius:999px;padding:2px 8px;font-size:11px;font-weight:600}
+.pill-brand{background:var(--brand-50);color:var(--brand-700);box-shadow:inset 0 0 0 1px rgba(30,82,237,.2)}
+.pill-gray{background:var(--s100);color:var(--s600)}
+.pill-amber{background:var(--amber-bg);color:#b45309;box-shadow:inset 0 0 0 1px rgba(217,119,6,.2)}
+.empty{display:flex;flex-direction:column;align-items:center;text-align:center;padding:56px 24px}
+.empty .ico{width:48px;height:48px;border-radius:50%;background:var(--s100);color:var(--s400);display:grid;place-items:center;margin-bottom:12px}
+.empty p{font-weight:500;color:var(--s800)}
+.empty small{margin-top:4px;font-size:13px;color:var(--s500)}
+
+/* ---------- layout ---------- */
+.shell{min-height:100dvh}
+.sidebar{position:fixed;inset:0 auto 0 0;width:256px;z-index:30;background:var(--ink-950);color:var(--s300);display:flex;flex-direction:column}
+.brand{display:flex;align-items:center;gap:12px;height:64px;padding:0 20px;border-bottom:1px solid rgba(255,255,255,.05)}
+.logo{width:32px;height:32px;border-radius:8px;background:var(--brand-600);display:grid;place-items:center;flex-shrink:0}
+.logo svg{width:20px;height:20px}
+.brand b{display:block;color:#fff;font-size:14px}
+.brand small{display:block;color:var(--s500);font-size:11px}
+.nav{flex:1;overflow-y:auto;padding:16px 12px}
+.nav a{display:flex;align-items:center;gap:12px;padding:8px 12px;border-radius:8px;font-weight:500;color:var(--s400);margin-bottom:4px;transition:background .15s,color .15s}
+.nav a:hover{background:rgba(255,255,255,.05);color:#fff}
+.nav a.active{background:var(--brand-600);color:#fff;box-shadow:0 1px 2px rgba(0,0,0,.2)}
+.nav .sec{padding:20px 12px 6px;font-size:11px;font-weight:600;letter-spacing:.06em;text-transform:uppercase;color:var(--s500)}
+.side-foot{border-top:1px solid rgba(255,255,255,.05);padding:12px}
+.me{display:flex;align-items:center;gap:12px;padding:8px 10px;border-radius:8px}
+.me:hover,.me.active{background:rgba(255,255,255,.05)}
+.avatar{width:32px;height:32px;border-radius:50%;display:grid;place-items:center;font-size:12px;font-weight:600;flex-shrink:0}
+.me .avatar{background:rgba(30,82,237,.25);color:var(--brand-200)}
+.me .who{min-width:0;flex:1}
+.me .who b{display:block;color:#fff;font-weight:500;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+.me .who small{display:block;color:var(--s500);font-size:12px}
+.logout{display:flex;width:100%;align-items:center;gap:12px;margin-top:4px;padding:8px 10px;border-radius:8px;color:var(--s400)}
+.logout:hover{background:rgba(255,255,255,.05);color:#fff}
+.content{padding-left:256px}
+.main{max-width:1280px;margin:0 auto;padding:32px}
+.topbar{display:none}
+.drawer-bg{display:none;position:fixed;inset:0;background:rgba(11,18,32,.6);z-index:35}
+.page-head{display:flex;justify-content:space-between;align-items:flex-end;gap:12px;margin-bottom:24px;flex-wrap:wrap}
+.page-head h1{font-size:24px;font-weight:600;letter-spacing:-.02em;display:flex;align-items:center;gap:12px;flex-wrap:wrap}
+.page-head .desc{margin-top:4px;color:var(--s500);display:flex;align-items:center;gap:8px;flex-wrap:wrap}
+.page-head .actions{display:flex;gap:8px;flex-wrap:wrap}
+.back{display:inline-flex;align-items:center;gap:4px;margin-bottom:8px;color:var(--s500)}
+.back:hover{color:var(--s800)}
+.narrow{max-width:900px;margin:0 auto}
+.narrow-sm{max-width:768px;margin:0 auto}
+.stack>*+*{margin-top:20px}
+.grid{display:grid;gap:16px}
+.g6{grid-template-columns:repeat(6,minmax(0,1fr))}
+.g2{grid-template-columns:repeat(2,minmax(0,1fr))}
+.c1{grid-column:span 1}.c2{grid-column:span 2}.c3{grid-column:span 3}.c6{grid-column:span 6}
+.row{display:flex;align-items:center;gap:8px}
+.wrap{flex-wrap:wrap}
+.between{justify-content:space-between}
+.end{justify-content:flex-end}
+.mt8{margin-top:8px}.mt16{margin-top:16px}.mt24{margin-top:24px}.mb16{margin-bottom:16px}
+
+/* ---------- login ---------- */
+.auth{min-height:100dvh;display:grid;grid-template-columns:1.1fr 1fr}
+.auth-art{position:relative;overflow:hidden;background:var(--ink-950);color:#fff;padding:48px;display:flex;flex-direction:column;justify-content:space-between}
+.auth-art::before{content:"";position:absolute;inset:0;opacity:.07;background-image:linear-gradient(#fff 1px,transparent 1px),linear-gradient(90deg,#fff 1px,transparent 1px);background-size:40px 40px}
+.auth-art::after{content:"";position:absolute;right:-130px;bottom:-130px;width:520px;height:520px;border-radius:50%;background:rgba(30,82,237,.35);filter:blur(64px)}
+.auth-art>*{position:relative;z-index:1}
+.auth-art h1{font-size:36px;line-height:1.15;font-weight:600;letter-spacing:-.02em;max-width:440px}
+.auth-art p{margin-top:16px;color:var(--s300);max-width:440px;line-height:1.6;font-size:15px}
+.auth-art small{color:var(--s500);font-size:12px}
+.auth-form{display:flex;align-items:center;justify-content:center;padding:48px 24px}
+.auth-box{width:100%;max-width:380px}
+.auth-box h2{font-size:24px;font-weight:600;letter-spacing:-.02em}
+.auth-box .sub{margin-top:6px;color:var(--s500)}
+.auth-box form{margin-top:32px}
+.auth-box form>*+*{margin-top:20px}
+.auth-mobile-brand{display:none;align-items:center;gap:12px;margin-bottom:32px;font-size:18px;font-weight:600}
+
+/* ---------- painel ---------- */
+.kpis{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:16px}
+.kpi{padding:20px}
+.kpi .top{display:flex;justify-content:space-between;align-items:center;color:var(--s500);font-weight:500}
+.kpi .ico{width:32px;height:32px;border-radius:8px;display:grid;place-items:center}
+.kpi .ico svg{width:16px;height:16px}
+.kpi .val{margin-top:8px;font-size:30px;font-weight:600;letter-spacing:-.02em}
+.kpi small{display:block;margin-top:4px;font-size:12px;color:var(--s500);white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+a.kpi:hover{border-color:var(--s300)}
+.dash{display:grid;grid-template-columns:3fr 2fr;gap:16px;margin-top:24px}
+.bars{padding:12px}
+.bar-row{display:flex;align-items:center;gap:12px;padding:6px 8px;border-radius:8px}
+.bar-row:hover{background:var(--s50)}
+.bar{position:relative;flex:1;height:10px;border-radius:999px;background:var(--s100);overflow:hidden}
+.bar span{position:absolute;inset:0 auto 0 0;border-radius:999px}
+.bar .tot{background:var(--s300)}
+.bar .act{background:var(--green)}
+.bar-num{width:64px;text-align:right}
+.bar-num b{font-weight:600}
+.list-link{display:flex;align-items:center;gap:12px;padding:12px 20px}
+.list-link:hover{background:var(--s50)}
+.list-link .grow{min-width:0;flex:1}
+.list-link .grow b{display:block;font-weight:500;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.list-link .grow small{display:block;font-size:12px;color:var(--s500);white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+
+/* ---------- tabela unidades ---------- */
+.filters{display:flex;gap:8px;padding:16px;border-bottom:1px solid var(--s100);align-items:center}
+.filters .search{position:relative;flex:1}
+.filters .sel{display:flex;gap:8px}
+.filters .sel select:nth-child(1){width:130px}
+.filters .sel select:nth-child(2){width:190px}
+.filters .sel select:nth-child(3){width:180px}
+.table-wrap{overflow-x:auto}
+table{width:100%;border-collapse:collapse;font-size:14px}
+th{text-align:left;font-size:12px;font-weight:500;text-transform:uppercase;letter-spacing:.04em;color:var(--s500);padding:12px;border-bottom:1px solid var(--s100);white-space:nowrap}
+td{padding:12px;border-bottom:1px solid var(--s100);vertical-align:middle}
+tbody tr{cursor:pointer;transition:background .1s}
+tbody tr:hover{background:rgba(248,250,252,.9)}
+tbody tr:hover .nm{color:var(--brand-700)}
+th:first-child,td:first-child{padding-left:16px}
+th:last-child,td:last-child{padding-right:16px}
+.center{text-align:center}
+.nm{font-weight:500}
+.cards{display:none}
+.ucard{display:block;padding:14px 16px}
+.ucard:active{background:var(--s50)}
+.ucard .l1{display:flex;justify-content:space-between;gap:12px;align-items:flex-start}
+.ucard .l1 .row{min-width:0}
+.ucard .l1 .nm{white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.ucard .l2{margin-top:8px;padding-left:42px;display:flex;flex-wrap:wrap;gap:4px 16px;font-size:12px;color:var(--s500)}
+.pager{display:flex;align-items:center;justify-content:space-between;gap:12px;padding:12px 16px}
+
+/* ---------- detalhe ---------- */
+.detail{display:grid;grid-template-columns:2fr 1fr;gap:16px}
+.detail .col{display:flex;flex-direction:column;gap:16px;min-width:0}
+.dl .r{display:grid;grid-template-columns:180px 1fr;gap:12px;align-items:center;padding:9px 20px}
+.dl dt{color:var(--s500)}
+.dl dd{margin:0;min-height:28px;display:flex;align-items:center;gap:4px;min-width:0}
+.dl dd .v{min-width:0;word-break:break-all}
+.icon-btn{width:28px;height:28px;border-radius:6px;display:grid;place-items:center;color:var(--s400);flex-shrink:0}
+.icon-btn:hover{background:var(--s100);color:var(--s700)}
+.icon-btn svg{width:14px;height:14px}
+.restricted{display:inline-flex;align-items:center;gap:6px;font-size:12px;color:var(--s400)}
+.obs{white-space:pre-line;padding:16px 20px;line-height:1.6;color:var(--s700)}
+.timeline{padding:16px 20px}
+.timeline li{position:relative;border-left:2px solid var(--s100);padding-left:16px;padding-bottom:16px}
+.timeline li:last-child{padding-bottom:0}
+.timeline li::before{content:"";position:absolute;left:-5px;top:6px;width:8px;height:8px;border-radius:50%;background:var(--s300)}
+.timeline small{display:block;font-size:12px;color:var(--s400)}
+.changes{margin-top:6px;font-size:12px;color:var(--s600)}
+.changes li{padding:1px 0}
+
+/* ---------- formulários ---------- */
+.form-section{padding:24px}
+.form-section .card-title{margin-bottom:16px}
+.form-actions{display:flex;justify-content:flex-end;gap:8px}
+.uf-grid{display:grid;grid-template-columns:repeat(9,minmax(0,1fr));gap:8px}
+.chip{position:relative;display:flex;height:36px;align-items:center;justify-content:center;border:1px solid var(--s200);border-radius:8px;background:#fff;font-weight:500;color:var(--s600);cursor:pointer;user-select:none;transition:all .12s}
+.chip:hover{border-color:var(--s300)}
+.chip:has(input:checked){background:var(--brand-600);border-color:var(--brand-600);color:#fff;box-shadow:0 1px 2px rgba(0,0,0,.1)}
+.chip input{position:absolute;opacity:0;pointer-events:none}
+.perm{display:flex;gap:12px;align-items:flex-start;padding:12px;border:1px solid var(--s200);border-radius:9px;cursor:pointer;transition:all .12s}
+.perm:has(input:checked){border-color:var(--brand-200);background:rgba(238,245,255,.6)}
+.perm.disabled{opacity:.5;pointer-events:none}
+.perm input{margin-top:2px;width:16px;height:16px;accent-color:var(--brand-600)}
+.perm b{display:block;font-weight:500;color:var(--s800)}
+.perm small{display:block;font-size:12px;color:var(--s500)}
+.toggle{display:inline-flex;align-items:center;gap:12px;cursor:pointer}
+.toggle input{position:absolute;opacity:0;pointer-events:none}
+.toggle .track{position:relative;width:44px;height:24px;border-radius:999px;background:var(--s200);transition:background .15s;flex-shrink:0}
+.toggle .track::after{content:"";position:absolute;left:2px;top:2px;width:20px;height:20px;border-radius:50%;background:#fff;box-shadow:0 1px 2px rgba(0,0,0,.2);transition:transform .15s}
+.toggle input:checked+.track{background:var(--brand-600)}
+.toggle input:checked+.track::after{transform:translateX(20px)}
+.toggle input:focus-visible+.track{box-shadow:0 0 0 3px rgba(52,113,248,.3)}
+.toggle input:disabled+.track{opacity:.6}
+.radio-card{display:flex;gap:12px;align-items:flex-start;padding:12px;border:1px solid var(--s200);border-radius:9px;cursor:pointer}
+.radio-card:has(input:checked){border-color:var(--brand-300);background:rgba(238,245,255,.6)}
+.radio-card input{margin-top:2px;accent-color:var(--brand-600)}
+.radio-card b{display:block;font-weight:500;color:var(--s800)}
+.radio-card small{display:block;font-size:12px;color:var(--s500)}
+.drop{display:flex;flex-direction:column;align-items:center;gap:8px;padding:40px 24px;text-align:center;border:2px dashed var(--s300);border-radius:12px;cursor:pointer;transition:all .15s}
+.drop:hover,.drop.over{border-color:var(--brand-500);background:rgba(238,245,255,.5)}
+.drop b{font-weight:500;color:var(--s800)}
+.drop small{font-size:12px;color:var(--s500)}
+.stats3{display:grid;grid-template-columns:repeat(3,1fr);text-align:center}
+.stats3>div{padding:16px 12px}
+.stats3>div+div{border-left:1px solid var(--s100)}
+.stats3 b{display:block;font-size:24px;font-weight:600}
+.stats3 small{font-size:12px;color:var(--s500)}
+
+/* ---------- usuários ---------- */
+.urow{display:flex;align-items:center;gap:12px;padding:16px 20px}
+.urow:hover{background:rgba(248,250,252,.9)}
+.urow.off{opacity:.6}
+.urow .who{min-width:0;flex:1;display:flex;align-items:center;gap:12px}
+.urow .who b{font-weight:500}
+.urow .perms{width:46%;display:flex;flex-wrap:wrap;gap:6px;align-items:center}
+.urow .last{width:110px;text-align:right;font-size:12px;color:var(--s400)}
+.av-admin{background:var(--brand-600);color:#fff}
+.av-user{background:var(--s100);color:var(--s600)}
+
+/* ---------- histórico ---------- */
+.chips{display:flex;gap:8px;flex-wrap:wrap;margin-bottom:16px}
+.chips a{border-radius:999px;padding:4px 12px;font-weight:500;background:#fff;color:var(--s600);box-shadow:inset 0 0 0 1px var(--s200)}
+.chips a.on{background:var(--ink-900);color:#fff;box-shadow:none}
+.hrow{display:flex;gap:16px;padding:12px 20px}
+.hrow .when{width:130px;flex-shrink:0;font-size:12px;color:var(--s500);padding-top:2px}
+.hrow .what{min-width:0;flex:1}
+.lnk{color:var(--brand-700);font-weight:500}
+.lnk:hover{text-decoration:underline}
+
+/* ---------- modal / toast ---------- */
+.modal{position:fixed;inset:0;z-index:50;display:grid;place-items:center;padding:16px}
+.modal-bg{position:absolute;inset:0;background:rgba(11,18,32,.5)}
+.modal-box{position:relative;width:100%;max-width:440px;background:#fff;border-radius:16px;padding:24px;box-shadow:0 20px 50px rgba(0,0,0,.25)}
+.modal-box .row{align-items:flex-start;gap:16px}
+.modal-box .warn{width:40px;height:40px;border-radius:50%;background:var(--red-bg);color:#dc2626;display:grid;place-items:center;flex-shrink:0}
+.modal-box h3{font-size:16px;font-weight:600}
+.modal-box p{margin-top:4px;color:var(--s600)}
+.toasts{position:fixed;z-index:60;right:16px;bottom:16px;display:flex;flex-direction:column;gap:8px}
+.toast{display:flex;align-items:center;gap:8px;background:var(--ink-900);color:#fff;padding:10px 14px;border-radius:10px;box-shadow:0 10px 30px rgba(0,0,0,.2);font-size:14px;animation:tin .2s ease-out}
+.toast.err{background:#b91c1c}
+@keyframes tin{from{transform:translateY(8px);opacity:0}to{transform:none;opacity:1}}
+.spin{animation:spin 1s linear infinite}
+@keyframes spin{to{transform:rotate(360deg)}}
+.banner{background:var(--amber-bg);color:var(--amber-tx);border-bottom:1px solid #fde68a;padding:8px 16px;font-size:13px;text-align:center}
+
+/* ---------- responsivo ---------- */
+@media (max-width:1100px){
+  .urow .last{display:none}
+}
+@media (max-width:1023px){
+  .sidebar{transform:translateX(-100%);transition:transform .2s;width:288px;max-width:85vw;z-index:40}
+  .shell.open .sidebar{transform:none;box-shadow:0 0 40px rgba(0,0,0,.3)}
+  .shell.open .drawer-bg{display:block}
+  .content{padding-left:0}
+  .topbar{display:flex;position:sticky;top:0;z-index:20;height:56px;align-items:center;gap:12px;padding:0 16px;background:rgba(255,255,255,.92);backdrop-filter:blur(8px);border-bottom:1px solid var(--s200);font-weight:600}
+  .main{padding:24px 16px}
+  .auth{grid-template-columns:1fr}
+  .auth-art{display:none}
+  .auth-mobile-brand{display:flex}
+  .dash,.detail{grid-template-columns:1fr}
+}
+@media (max-width:767px){
+  .kpis{grid-template-columns:repeat(2,minmax(0,1fr));gap:12px}
+  .kpi{padding:16px}
+  .kpi .val{font-size:24px}
+  .filters{flex-direction:column;align-items:stretch;padding:12px}
+  .filters .search{flex:none}
+  .filters .sel{display:grid;grid-template-columns:1fr 1fr}
+  .filters .sel select{width:auto!important}
+  .filters .sel select:nth-child(3){grid-column:span 2}
+  .table-wrap{display:none}
+  .cards{display:block}
+  .g6,.g2{grid-template-columns:1fr}
+  .g6>*,.g2>*{grid-column:auto}
+  .form-section,.pad{padding:16px}
+  .uf-grid{grid-template-columns:repeat(5,minmax(0,1fr))}
+  .dl .r{grid-template-columns:minmax(0,2fr) minmax(0,3fr);padding:9px 16px}
+  .urow{flex-direction:column;align-items:stretch;padding:14px 16px}
+  .urow .perms{width:auto;padding-left:44px}
+  .hrow{flex-direction:column;gap:2px;padding:12px 16px}
+  .form-actions.sticky{position:sticky;bottom:0;margin:0 -16px;padding:12px 16px;background:rgba(255,255,255,.95);border-top:1px solid var(--s200);backdrop-filter:blur(8px)}
+  .modal{place-items:end center;padding:0}
+  .modal-box{max-width:none;border-radius:16px 16px 0 0}
+  .page-head h1{font-size:22px}
+  .toasts{left:16px;right:16px}
+}
+
+</style>
+</head>
+<body>
+<div id="app"></div>
+<noscript>Ative o JavaScript para usar o sistema.</noscript>
+<script>
+"use strict";
+/* =====================================================================
+   VTAL Unidades — interface web
+   ---------------------------------------------------------------------
+   Interface (este arquivo) + API em /api/rpc (pasta api/) + banco Neon.
+   Toda leitura/gravação passa pelo objeto `DB`, que chama a API.
+   ===================================================================== */
+
+/* ============================ CONSTANTES ============================ */
+const UFS = ["AC","AL","AM","AP","BA","CE","DF","ES","GO","MA","MG","MS","MT","PA","PB","PE","PI","PR","RJ","RN","RO","RR","RS","SC","SE","SP","TO"];
+const STATUS = ["Ativa", "Inativa", "Vandalizada", "Offline sem conexão"];
+const PAGE_SIZE = 25;
+const CAMPOS = {
+  uf: "UF", nome: "Nome da unidade", cloud_nvr: "Cloud NVR", login: "Login", senha: "Senha do NVR", ip: "IP", hd: "HD",
+  qtd_cameras: "Quantidade de câmeras", mac_alarme: "MAC do alarme", sensores: "Sensores", senha_alarme: "Senha do alarme",
+  acesso_central: "Acesso da central", observacoes: "Observações", status: "Status", cadeado_bluetooth: "Cadeado bluetooth",
+};
+const CAMPOS_UNIDADE = Object.keys(CAMPOS);
+const SENSIVEIS = ["senha", "senha_alarme", "acesso_central"];
+const PERMS = [
+  ["pode_ver", "Visualizar", "Consultar a lista e os detalhes das unidades", "Ver"],
+  ["pode_incluir", "Incluir", "Cadastrar novas unidades", "Incluir"],
+  ["pode_editar", "Editar", "Alterar dados de unidades existentes", "Editar"],
+  ["pode_excluir", "Excluir", "Remover unidades", "Excluir"],
+  ["pode_ver_senhas", "Ver senhas", "Senha do NVR, senha do alarme e acesso da central", "Senhas"],
+  ["pode_exportar", "Exportar Excel", "Baixar a lista de unidades em planilha", "Exportar"],
+];
+// Leitor de planilhas (SheetJS) — carregado só ao importar/exportar. O 2º endereço é reserva.
+const XLSX_URLS = ["https://cdn.sheetjs.com/xlsx-0.20.3/package/dist/xlsx.full.min.js", "https://cdn.jsdelivr.net/npm/xlsx@0.18.5/dist/xlsx.full.min.js"];
+
+/* ============================== ÍCONES ============================== */
+const IC = {
+  dash: '<rect width="7" height="9" x="3" y="3" rx="1"/><rect width="7" height="5" x="14" y="3" rx="1"/><rect width="7" height="9" x="14" y="12" rx="1"/><rect width="7" height="5" x="3" y="16" rx="1"/>',
+  building: '<rect width="16" height="20" x="4" y="2" rx="2"/><path d="M9 22v-4h6v4M8 6h.01M16 6h.01M12 6h.01M12 10h.01M12 14h.01M16 10h.01M16 14h.01M8 10h.01M8 14h.01"/>',
+  users: '<path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M22 21v-2a4 4 0 0 0-3-3.87M16 3.13a4 4 0 0 1 0 7.75"/>',
+  upload: '<path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="17 8 12 3 7 8"/><line x1="12" x2="12" y1="3" y2="15"/>',
+  download: '<path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" x2="12" y1="15" y2="3"/>',
+  history: '<path d="M3 12a9 9 0 1 0 9-9 9.75 9.75 0 0 0-6.74 2.74L3 8"/><path d="M3 3v5h5"/><path d="M12 7v5l4 2"/>',
+  user: '<circle cx="12" cy="8" r="5"/><path d="M20 21a8 8 0 0 0-16 0"/>',
+  logout: '<path d="M9 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h4"/><polyline points="16 17 21 12 16 7"/><line x1="21" x2="9" y1="12" y2="12"/>',
+  menu: '<line x1="4" x2="20" y1="6" y2="6"/><line x1="4" x2="20" y1="12" y2="12"/><line x1="4" x2="20" y1="18" y2="18"/>',
+  x: '<path d="M18 6 6 18M6 6l12 12"/>',
+  plus: '<path d="M5 12h14M12 5v14"/>',
+  search: '<circle cx="11" cy="11" r="8"/><path d="m21 21-4.3-4.3"/>',
+  pencil: '<path d="M17 3a2.85 2.83 0 1 1 4 4L7.5 20.5 2 22l1.5-5.5Z"/>',
+  trash: '<path d="M3 6h18M19 6v14c0 1-1 2-2 2H7c-1 0-2-1-2-2V6M8 6V4c0-1 1-2 2-2h4c1 0 2 1 2 2v2"/>',
+  copy: '<rect width="14" height="14" x="8" y="8" rx="2"/><path d="M4 16c-1.1 0-2-.9-2-2V4c0-1.1.9-2 2-2h10c1.1 0 2 .9 2 2"/>',
+  check: '<path d="M20 6 9 17l-5-5"/>',
+  checkCircle: '<circle cx="12" cy="12" r="10"/><path d="m9 12 2 2 4-4"/>',
+  eye: '<path d="M2 12s3-7 10-7 10 7 10 7-3 7-10 7-10-7-10-7Z"/><circle cx="12" cy="12" r="3"/>',
+  eyeOff: '<path d="M9.88 9.88a3 3 0 1 0 4.24 4.24M10.73 5.08A10.43 10.43 0 0 1 12 5c7 0 10 7 10 7a13.16 13.16 0 0 1-1.67 2.68M6.61 6.61A13.526 13.526 0 0 0 2 12s3 7 10 7a9.74 9.74 0 0 0 5.39-1.61M2 2l20 20"/>',
+  lock: '<rect width="18" height="11" x="3" y="11" rx="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/>',
+  server: '<rect width="20" height="8" x="2" y="2" rx="2"/><rect width="20" height="8" x="2" y="14" rx="2"/><path d="M6 6h.01M6 18h.01"/>',
+  bell: '<path d="M6 8a6 6 0 0 1 12 0c0 7 3 9 3 9H3s3-2 3-9"/><path d="M10.3 21a1.94 1.94 0 0 0 3.4 0"/>',
+  file: '<path d="M15 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V7Z"/><path d="M14 2v4a2 2 0 0 0 2 2h4M10 9H8M16 13H8M16 17H8"/>',
+  pin: '<path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0Z"/><circle cx="12" cy="10" r="3"/>',
+  shield: '<path d="M20 13c0 5-3.5 7.5-7.66 8.95a1 1 0 0 1-.67-.01C7.5 20.5 4 18 4 13V6a1 1 0 0 1 1-1c2 0 4.5-1.2 6.24-2.72a1.17 1.17 0 0 1 1.52 0C14.51 3.81 17 5 19 5a1 1 0 0 1 1 1z"/><path d="m9 12 2 2 4-4"/>',
+  alert: '<path d="m21.73 18-8-14a2 2 0 0 0-3.48 0l-8 14A2 2 0 0 0 4 21h16a2 2 0 0 0 1.73-3"/><path d="M12 9v4M12 17h.01"/>',
+  alertCircle: '<circle cx="12" cy="12" r="10"/><path d="M12 8v4M12 16h.01"/>',
+  camera: '<path d="M14.5 4h-5L7 7H4a2 2 0 0 0-2 2v9a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2V9a2 2 0 0 0-2-2h-3l-2.5-3z"/><circle cx="12" cy="13" r="3"/>',
+  chevL: '<path d="m15 18-6-6 6-6"/>',
+  chevR: '<path d="m9 18 6-6-6-6"/>',
+  arrowR: '<path d="M5 12h14M12 5l7 7-7 7"/>',
+  map: '<path d="M14.106 5.553a2 2 0 0 0 1.788 0l3.659-1.83A1 1 0 0 1 21 4.619v12.764a1 1 0 0 1-.553.894l-4.553 2.277a2 2 0 0 1-1.788 0l-4.212-2.106a2 2 0 0 0-1.788 0l-3.659 1.83A1 1 0 0 1 3 19.381V6.618a1 1 0 0 1 .553-.894l4.553-2.277a2 2 0 0 1 1.788 0z"/><path d="M15 5.764v15M9 3.236v15"/>',
+  key: '<circle cx="7.5" cy="15.5" r="5.5"/><path d="m21 2-9.6 9.6M15.5 7.5l3 3L22 7l-3-3"/>',
+  sheet: '<path d="M15 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V7Z"/><path d="M14 2v4a2 2 0 0 0 2 2h4M8 13h2M14 13h2M8 17h2M14 17h2"/>',
+  db: '<ellipse cx="12" cy="5" rx="9" ry="3"/><path d="M3 5v14a9 3 0 0 0 18 0V5"/><path d="M3 12a9 3 0 0 0 18 0"/>',
+  loader: '<path d="M21 12a9 9 0 1 1-6.219-8.56"/>',
+};
+const icon = (n, cls = "") => `<svg class="i ${cls}" viewBox="0 0 24 24" aria-hidden="true">${IC[n] || ""}</svg>`;
+const LOGO = '<span class="logo"><svg viewBox="0 0 32 32" aria-hidden="true"><path d="M9 11h14v10H9z" fill="none" stroke="#fff" stroke-width="2.4" stroke-linejoin="round"/><circle cx="16" cy="16" r="2.6" fill="#fff"/></svg></span>';
+
+/* ============================ UTILITÁRIOS ============================ */
+const $ = (s, el = document) => el.querySelector(s);
+const $$ = (s, el = document) => [...el.querySelectorAll(s)];
+const esc = (v) => String(v ?? "").replace(/[&<>"']/g, (c) => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;", "'": "&#39;" }[c]));
+const nf = new Intl.NumberFormat("pt-BR");
+const TZ = "America/Sao_Paulo";
+function fmtDT(d) { if (!d) return "—"; const x = new Date(d); return isNaN(x) ? "—" : new Intl.DateTimeFormat("pt-BR", { dateStyle: "short", timeStyle: "short", timeZone: TZ }).format(x); }
+function fmtD(d) { if (!d) return "—"; const x = new Date(d); return isNaN(x) ? "—" : new Intl.DateTimeFormat("pt-BR", { dateStyle: "short", timeZone: TZ }).format(x); }
+function fmtRel(d) {
+  if (!d) return "—";
+  const s = (Date.now() - new Date(d).getTime()) / 1000;
+  if (s < 60) return "agora";
+  if (s < 3600) return `há ${Math.floor(s / 60)} min`;
+  if (s < 86400) return `há ${Math.floor(s / 3600)} h`;
+  if (s < 86400 * 30) return `há ${Math.floor(s / 86400)} d`;
+  return fmtD(d);
+}
+const norm = (s) => String(s ?? "").normalize("NFD").replace(/[̀-ͯ]/g, "").toLowerCase().replace(/\s+/g, " ").trim();
+const initials = (n) => String(n || "?").split(/\s+/).filter(Boolean).slice(0, 2).map((p) => p[0]).join("").toUpperCase();
+const nowIso = () => new Date().toISOString();
+const clone = (o) => JSON.parse(JSON.stringify(o));
+function randomHex(n = 16) {
+  const a = new Uint8Array(n);
+  (window.crypto || {}).getRandomValues ? crypto.getRandomValues(a) : a.forEach((_, i) => (a[i] = Math.floor(Math.random() * 256)));
+  return [...a].map((b) => b.toString(16).padStart(2, "0")).join("");
+}
+function statusClass(s) {
+  return { "Ativa": "st-ativa", "Inativa": "st-inativa", "Vandalizada": "st-vandalizada", "Offline sem conexão": "st-offline" }[s] || "st-inativa";
+}
+const statusBadge = (s) => `<span class="badge ${statusClass(s)}"><span class="dot"></span>${esc(s)}</span>`;
+const ufBadge = (uf) => `<span class="uf">${esc(uf)}</span>`;
+const emailOk = (e) => /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(e);
+
+/* ---------- normalização de dados (formulário e importação) ---------- */
+function cleanText(v) {
+  if (v === null || v === undefined) return null;
+  if (v instanceof Date) return v.toISOString();
+  let s = typeof v === "number" ? String(v) : String(v).trim();
+  const f = s.match(/^=\w*\(\s*"([^"]*)"\s*\)$/); // =AI("NÃO")
+  if (f) s = f[1].trim();
+  return s === "" ? null : s;
+}
+function normalizeIp(v) {
+  let s = cleanText(v);
+  if (!s) return null;
+  s = s.replace(/^ip[\s:]*/i, "").replace(/\s+/g, "").replace(/\.+$/, "");
+  if (!s) return null;
+  if (!/^\d{4,12}$/.test(s)) return s;
+  const ok = (p) => p.length > 0 && p.length <= 3 && Number(p) <= 255 && !(p.length > 1 && p[0] === "0");
+  const found = [];
+  for (let a = 1; a <= 3; a++) for (let b = a + 1; b <= a + 3; b++) for (let c = b + 1; c <= b + 3 && c < s.length; c++) {
+    const parts = [s.slice(0, a), s.slice(a, b), s.slice(b, c), s.slice(c)];
+    if (parts.every(ok)) found.push(parts.join("."));
+  }
+  return found.length === 1 ? found[0] : s;
+}
+function normalizeHd(v) {
+  const s = cleanText(v);
+  if (!s) return null;
+  if (/^\d+(\.\d+)?$/.test(s)) return `${s}TB`;
+  const m = s.match(/^(\d+(?:[.,]\d+)?)\s*(TB|GB)+$/i);
+  return m ? `${m[1]}${m[2].toUpperCase()}` : s.toUpperCase();
+}
+const normalizeSimNao = (v) => ((cleanText(v) || "").toUpperCase().startsWith("S") ? "SIM" : "NÃO");
+function normalizeInt(v) {
+  const s = cleanText(v);
+  if (!s) return null;
+  const n = Number(s.replace(",", "."));
+  return Number.isFinite(n) ? Math.round(n) : null;
+}
+
+/* ============================ PERMISSÕES ============================ */
+const isAdmin = (u) => u && u.perfil === "admin";
+function can(u, acao) {
+  if (!u) return false;
+  if (isAdmin(u)) return true;
+  if (acao !== "ver" && !u.pode_ver) return false;
+  return !!u["pode_" + acao];
+}
+const ufScope = (u) => (isAdmin(u) || u.todas_ufs ? null : u.ufs || []);
+const canUf = (u, uf) => { const s = ufScope(u); return s === null || s.includes(uf); };
+function sanitize(u, row) {
+  if (can(u, "ver_senhas")) return { ...row };
+  const c = { ...row };
+  SENSIVEIS.forEach((k) => delete c[k]);
+  return c;
+}
+
+/* ====================================================================
+   DB — CAMADA DE DADOS (API no servidor → banco Neon)
+   Cada método chama POST /api/rpc. As permissões são verificadas no
+   servidor; o navegador nunca vê a senha do banco.
+   ==================================================================== */
+async function rpc(m, a = {}) {
+  let r;
+  try {
+    r = await fetch("/api/rpc", { method: "POST", headers: { "Content-Type": "application/json" }, credentials: "same-origin", body: JSON.stringify({ m, a }) });
+  } catch { throw new Error("Sem conexão com o servidor. Verifique a internet."); }
+  let j = {};
+  try { j = await r.json(); } catch {}
+  if (r.status === 401 && m !== "login") {
+    CURRENT = null;
+    if (location.hash !== "#/login") { history.replaceState(null, "", "#/login"); renderLogin(); }
+    throw new Error(j.error || "Sessão expirada.");
+  }
+  if (!r.ok) throw new Error(j.error || `Erro ${r.status}`);
+  return j;
+}
+const safe = (p) => p.catch((e) => ({ error: e.message }));
+
+const DB = {
+  async sessaoAtual() { return (await rpc("me")).user; },
+  login: (email, senha) => safe(rpc("login", { email, senha })),
+  logout: () => safe(rpc("logout")),
+  trocarSenha: (user, atual, nova, confirmar) => safe(rpc("trocarSenha", { atual, nova, confirmar })),
+
+  stats: () => rpc("stats"),
+  listUnidades: (user, f) => rpc("listUnidades", { f }),
+  async exportarUnidades(user, f) { return (await rpc("exportarUnidades", { f })).rows; },
+  async ufsVisiveis() { return (await rpc("ufsVisiveis")).ufs; },
+  getUnidade: (user, id) => rpc("getUnidade", { id }),
+  salvarUnidade: (user, form, id) => safe(rpc("salvarUnidade", { form, id })),
+  excluirUnidade: (user, id) => safe(rpc("excluirUnidade", { id })),
+
+  async listUsuarios() { return (await rpc("listUsuarios")).rows; },
+  async getUsuario(admin, id) { return (await rpc("getUsuario", { id })).usuario; },
+  salvarUsuario: (admin, form, id) => safe(rpc("salvarUsuario", { form, id })),
+  excluirUsuario: (admin, id) => safe(rpc("excluirUsuario", { id })),
+
+  importar: (admin, parsed, opts) => rpc("importar", { unidades: parsed.unidades, usuarios: parsed.usuarios, ignoradas: parsed.ignoradas.length, ...opts }),
+  backup: () => rpc("backup"),
+  historico: (admin, opts) => rpc("historico", opts),
+};
+
+/* ====================================================================
+   PLANILHA (SheetJS carregado sob demanda — precisa de internet só
+   na hora de importar/exportar Excel)
+   ==================================================================== */
+let xlsxPromise = null;
+function loadScript(src) {
+  return new Promise((res, rej) => {
+    const s = document.createElement("script");
+    s.src = src; s.onload = res; s.onerror = () => { s.remove(); rej(); };
+    document.head.appendChild(s);
+  });
+}
+function loadXLSX() {
+  if (window.XLSX) return Promise.resolve(window.XLSX);
+  xlsxPromise ??= (async () => {
+    for (const url of XLSX_URLS) { try { await loadScript(url); if (window.XLSX) return window.XLSX; } catch {} }
+    xlsxPromise = null;
+    throw new Error("Não foi possível carregar o leitor de planilhas. Verifique a conexão com a internet.");
+  })();
+  return xlsxPromise;
+}
+
+async function parsePlanilha(file) {
+  const XLSX = await loadXLSX();
+  const wb = XLSX.read(await file.arrayBuffer(), { cellDates: true });
+  const sheetRows = (ws) => XLSX.utils.sheet_to_json(ws, { defval: null, raw: true }).map((r, i) => {
+    const o = { __linha: i + 2 };
+    for (const [k, v] of Object.entries(r)) o[norm(k)] = v;
+    return o;
+  });
+  const headers = (ws) => (XLSX.utils.sheet_to_json(ws, { header: 1, range: 0 })[0] || []).map(norm);
+  const find = (name, h) => {
+    const n = wb.SheetNames.find((x) => norm(x) === norm(name));
+    if (n) return wb.Sheets[n];
+    const alt = wb.SheetNames.find((x) => headers(wb.Sheets[x]).includes(h));
+    return alt ? wb.Sheets[alt] : null;
+  };
+
+  const avisos = [], ignoradas = [];
+  let ipsCorrigidos = 0;
+  const unidades = [];
+  const wsU = find("UNIDADES", "nome da unidade");
+  if (!wsU) avisos.push("Aba de unidades não encontrada (precisa ter a coluna “Nome da unidade”).");
+  else {
+    const idx = new Map();
+    for (const r of sheetRows(wsU)) {
+      const nome = (cleanText(r["nome da unidade"]) || "").toUpperCase();
+      const uf = (cleanText(r["uf"]) || nome.slice(0, 2)).toUpperCase();
+      if (!nome && !Object.entries(r).some(([k, v]) => k !== "__linha" && v !== null)) continue;
+      if (!nome) { ignoradas.push({ linha: r.__linha, motivo: "sem nome da unidade" }); continue; }
+      if (!UFS.includes(uf)) { ignoradas.push({ linha: r.__linha, motivo: `UF inválida (${uf || "vazia"})` }); continue; }
+      const ipBruto = cleanText(r["ip"]);
+      const ip = normalizeIp(r["ip"]);
+      if (ipBruto && ip !== ipBruto) ipsCorrigidos++;
+      const stRaw = cleanText(r["status"]) || "Ativa";
+      const dt = r["ultima atualizacao"];
+      const u = {
+        uf, nome,
+        cloud_nvr: cleanText(r["cloud nvr"])?.toUpperCase() ?? null,
+        login: cleanText(r["login"]),
+        senha: cleanText(r["senha"]),
+        ip,
+        hd: normalizeHd(r["hd"]),
+        qtd_cameras: normalizeInt(r["quantidade de cameras"]),
+        mac_alarme: cleanText(r["mac do alarme"])?.toUpperCase() ?? null,
+        sensores: cleanText(r["sensores"])?.toUpperCase() ?? null,
+        senha_alarme: cleanText(r["senha do alarme"]),
+        acesso_central: cleanText(r["acesso da central"]),
+        observacoes: cleanText(r["observacoes"]),
+        status: STATUS.find((s) => norm(s) === norm(stRaw)) || stRaw,
+        cadeado_bluetooth: normalizeSimNao(r["cadeado bluetooth"]),
+        atualizado_em: dt instanceof Date && !isNaN(dt) ? dt.toISOString() : null,
+        atualizado_por: cleanText(r["atualizado por"]),
+      };
+      if (idx.has(nome)) { ignoradas.push({ linha: idx.get(nome).linha, motivo: `nome repetido (${nome}) — mantida a linha ${r.__linha}` }); unidades[idx.get(nome).pos] = u; }
+      else { idx.set(nome, { linha: r.__linha, pos: unidades.length }); unidades.push(u); }
+    }
+  }
+
+  const usuarios = [];
+  const wsUs = find("USUARIOS", "email");
+  if (wsUs && wsUs !== wsU) {
+    const sim = (v) => norm(v).startsWith("s");
+    for (const r of sheetRows(wsUs)) {
+      const email = (cleanText(r["email"]) || "").toLowerCase();
+      if (!emailOk(email)) continue;
+      const ufsTxt = (cleanText(r["ufs permitidas"]) || "").toUpperCase();
+      const todas = !ufsTxt || ufsTxt.includes("TODAS");
+      const nomeLocal = email.split("@")[0].split(/[._-]/).map((p) => p.charAt(0).toUpperCase() + p.slice(1)).join(" ");
+      usuarios.push({
+        email, nome: cleanText(r["nome"]) || nomeLocal, perfil: norm(r["perfil"]) === "admin" ? "admin" : "tecnico",
+        todas_ufs: todas, ufs: todas ? [] : ufsTxt.split(/[^A-Z]+/).filter((u) => UFS.includes(u)),
+        pode_ver: sim(r["pode visualizar"]), pode_incluir: sim(r["pode incluir"]), pode_editar: sim(r["pode editar"]), pode_excluir: sim(r["pode excluir"]),
+        ativo: !norm(r["status"]).startsWith("inativ"),
+      });
+    }
+  }
+  return { unidades, usuarios, ignoradas, avisos, ipsCorrigidos };
+}
+
+async function exportarExcel(rows, user) {
+  const XLSX = await loadXLSX();
+  const senhas = can(user, "ver_senhas");
+  const cols = [
+    ["id", "ID", 7], ["uf", "UF", 6], ["nome", "Nome da unidade", 22], ["cloud_nvr", "Cloud NVR", 18], ["login", "Login", 10],
+    ["senha", "Senha", 14, 1], ["ip", "IP", 17], ["hd", "HD", 7], ["qtd_cameras", "Quantidade de câmeras", 11], ["mac_alarme", "MAC do alarme", 16],
+    ["sensores", "Sensores", 12], ["senha_alarme", "Senha do alarme", 14, 1], ["acesso_central", "Acesso da central", 14, 1],
+    ["observacoes", "Observações", 60], ["status", "Status", 14], ["atualizado_em", "Última atualização", 18], ["atualizado_por", "Atualizado por", 24],
+    ["cadeado_bluetooth", "Cadeado bluetooth", 10],
+  ].filter((c) => senhas || !c[3]);
+  const data = rows.map((r) => Object.fromEntries(cols.map(([k, h]) => [h, k === "atualizado_em" && r[k] ? new Date(r[k]) : r[k] ?? null])));
+  const ws = XLSX.utils.json_to_sheet(data, { header: cols.map((c) => c[1]), cellDates: true, dateNF: "dd/mm/yyyy hh:mm" });
+  ws["!cols"] = cols.map((c) => ({ wch: c[2] }));
+  ws["!autofilter"] = { ref: XLSX.utils.encode_range({ s: { r: 0, c: 0 }, e: { r: 0, c: cols.length - 1 } }) };
+  const wb = XLSX.utils.book_new();
+  XLSX.utils.book_append_sheet(wb, ws, "UNIDADES");
+  XLSX.writeFile(wb, `unidades-${new Date().toISOString().slice(0, 10)}.xlsx`);
+}
+
+function baixarArquivo(nome, conteudo, tipo) {
+  const url = URL.createObjectURL(new Blob([conteudo], { type: tipo }));
+  const a = Object.assign(document.createElement("a"), { href: url, download: nome });
+  document.body.appendChild(a); a.click(); a.remove();
+  setTimeout(() => URL.revokeObjectURL(url), 2000);
+}
+
+/* ====================================================================
+   INTERFACE — componentes
+   ==================================================================== */
+const APP = () => document.getElementById("app");
+
+function toast(msg, kind = "ok") {
+  let box = $(".toasts");
+  if (!box) { box = document.createElement("div"); box.className = "toasts"; document.body.appendChild(box); }
+  const t = document.createElement("div");
+  t.className = "toast" + (kind === "err" ? " err" : "");
+  t.innerHTML = `${icon(kind === "err" ? "alertCircle" : "checkCircle", "sm")}<span>${esc(msg)}</span>`;
+  box.appendChild(t);
+  setTimeout(() => { t.style.opacity = "0"; t.style.transition = "opacity .3s"; setTimeout(() => t.remove(), 300); }, 3200);
+}
+
+function confirmar({ titulo, texto, ok = "Excluir" }) {
+  return new Promise((resolve) => {
+    const m = document.createElement("div");
+    m.className = "modal";
+    m.innerHTML = `<div class="modal-bg"></div>
+      <div class="modal-box" role="dialog" aria-modal="true">
+        <div class="row"><span class="warn">${icon("alert")}</span><div><h3>${esc(titulo)}</h3><p>${texto}</p></div></div>
+        <div class="row end mt24"><button class="btn btn-secondary" data-r="0">Cancelar</button><button class="btn btn-danger" data-r="1">${esc(ok)}</button></div>
+      </div>`;
+    const close = (v) => { m.remove(); document.removeEventListener("keydown", onKey); resolve(v); };
+    const onKey = (e) => e.key === "Escape" && close(false);
+    m.addEventListener("click", (e) => { const b = e.target.closest("[data-r]"); if (b) close(b.dataset.r === "1"); else if (e.target.classList.contains("modal-bg")) close(false); });
+    document.addEventListener("keydown", onKey);
+    document.body.appendChild(m);
+    $("[data-r='1']", m).focus();
+  });
+}
+
+const alertBox = (kind, html) => `<div class="alert alert-${kind}" role="${kind === "error" ? "alert" : "status"}">${html}</div>`;
+const emptyState = (ic, title, sub = "") => `<div class="empty"><div class="ico">${icon(ic, "lg")}</div><p>${esc(title)}</p>${sub ? `<small>${sub}</small>` : ""}</div>`;
+function pageHead({ title, desc = "", actions = "", back = null }) {
+  return `${back ? `<a class="back" href="#${back.href}">← ${esc(back.label)}</a>` : ""}
+    <div class="page-head"><div style="min-width:0"><h1>${title}</h1>${desc ? `<div class="desc">${desc}</div>` : ""}</div>${actions ? `<div class="actions">${actions}</div>` : ""}</div>`;
+}
+const section = (ic, title, body, cls = "") => `<section class="card form-section ${cls}"><h2 class="card-title"><span class="ico">${icon(ic)}</span>${esc(title)}</h2>${body}</section>`;
+const field = (label, inner, { cls = "", hint = "", name = "" } = {}) =>
+  `<label class="${cls}" style="display:block"><span class="label">${esc(label)}</span>${inner}<span class="field-error hidden" data-err="${name}"></span>${hint ? `<span class="hint" style="display:block">${esc(hint)}</span>` : ""}</label>`;
+const secretInput = (name, value, extra = "") =>
+  `<div class="input-wrap"><input class="input mono" type="password" name="${name}" value="${esc(value)}" autocomplete="new-password" ${extra}><button type="button" class="eye" data-act="toggle-pass" aria-label="Mostrar">${icon("eye", "sm")}</button></div>`;
+const toggle = (name, label, checked, extra = "") =>
+  `<label class="toggle"><input type="checkbox" name="${name}" ${checked ? "checked" : ""} ${extra}><span class="track"></span><span>${esc(label)}</span></label>`;
+
+function showErrors(form, res) {
+  $$("[data-err]", form).forEach((e) => { e.classList.add("hidden"); e.textContent = ""; });
+  $$(".input.invalid", form).forEach((e) => e.classList.remove("invalid"));
+  const top = $("[data-form-error]", form);
+  if (top) top.innerHTML = res.error ? alertBox("error", `${icon("alertCircle", "sm")} ${esc(res.error)}`) : "";
+  for (const [k, msg] of Object.entries(res.fieldErrors || {})) {
+    const el = $(`[data-err="${k}"]`, form);
+    if (el) { el.textContent = msg; el.classList.remove("hidden"); }
+    const inp = form.elements[k];
+    if (inp && inp.classList) inp.classList.add("invalid");
+  }
+  const first = $(".input.invalid", form) || top;
+  first?.scrollIntoView({ block: "center", behavior: "smooth" });
+}
+function setBusy(btn, busy, label) {
+  if (!btn) return;
+  if (busy) { btn.dataset.label = btn.innerHTML; btn.disabled = true; btn.innerHTML = `${icon("loader", "sm spin")} ${label || "Salvando…"}`; }
+  else { btn.disabled = false; if (btn.dataset.label) btn.innerHTML = btn.dataset.label; }
+}
+const formObj = (form) => {
+  const fd = new FormData(form), o = {};
+  for (const [k, v] of fd.entries()) { if (k in o) o[k] = [].concat(o[k], v); else o[k] = v; }
+  $$("input[type=checkbox]", form).forEach((c) => { if (!(c.name in o) && c.name !== "ufs") o[c.name] = false; else if (o[c.name] === "on") o[c.name] = true; });
+  return o;
+};
+
+/* ====================================================================
+   ROTEAMENTO (hash) — #/unidades, #/unidades/12, #/usuarios …
+   ==================================================================== */
+let CURRENT = null;
+let lastPath = null;
+function parseHash() {
+  const h = location.hash.replace(/^#/, "") || "/";
+  const [path, qs] = h.split("?");
+  return { path: path || "/", parts: path.split("/").filter(Boolean), q: new URLSearchParams(qs || "") };
+}
+const go = (h) => { if (location.hash === "#" + h) route(); else location.hash = h; };
+
+async function route() {
+  const r = parseHash();
+  let user;
+  try { user = await DB.sessaoAtual(); }
+  catch (e) { return renderErroConexao(e.message); }
+  if (!user) { if (r.path !== "/login") history.replaceState(null, "", "#/login"); return renderLogin(); }
+  if (user.trocar_senha) return renderTrocarSenha(user);
+  if (r.path === "/login") return go("/");
+  CURRENT = user;
+
+  const [a, b, c] = r.parts;
+  const sem = () => pgSemPermissao();
+  let pg;
+  try {
+    if (!a) pg = await pgPainel(user);
+    else if (a === "unidades") {
+      if (!can(user, "ver")) pg = sem();
+      else if (!b) pg = await pgUnidades(user, r.q);
+      else if (b === "nova") pg = can(user, "incluir") ? await pgFormUnidade(user, null) : sem();
+      else if (c === "editar") pg = can(user, "editar") ? await pgFormUnidade(user, Number(b)) : sem();
+      else pg = await pgUnidade(user, Number(b));
+    } else if (["usuarios", "importar", "historico"].includes(a) && !isAdmin(user)) { history.replaceState(null, "", "#/"); pg = await pgPainel(user); }
+    else if (a === "usuarios") pg = !b ? await pgUsuarios(user) : await pgFormUsuario(user, b === "novo" ? null : Number(b));
+    else if (a === "importar") pg = pgImportar(user);
+    else if (a === "historico") pg = await pgHistorico(user, r.q);
+    else if (a === "conta") pg = pgConta(user);
+    else pg = pgNaoEncontrado();
+  } catch (e) {
+    console.error(e);
+    pg = { title: "Erro", html: alertBox("error", `Ocorreu um erro: ${esc(e.message)}`) };
+  }
+  renderShell(user, a || "painel", pg);
+  if (lastPath !== r.path) window.scrollTo(0, 0);
+  lastPath = r.path;
+}
+
+function renderShell(user, active, pg) {
+  document.title = `${pg.title ? pg.title + " · " : ""}VTAL Unidades`;
+  const nav = (href, key, ic, label) => `<a href="#${href}" class="${active === key ? "active" : ""}">${icon(ic)} ${label}</a>`;
+  APP().innerHTML = `
+  <div class="shell">
+    <aside class="sidebar">
+      <div class="brand">${LOGO}<div><b>VTAL Unidades</b><small>Manutenção</small></div></div>
+      <nav class="nav">
+        ${nav("/", "painel", "dash", "Painel")}
+        ${can(user, "ver") ? nav("/unidades", "unidades", "building", "Unidades") : ""}
+        ${isAdmin(user) ? `<div class="sec">Administração</div>
+          ${nav("/usuarios", "usuarios", "users", "Usuários")}
+          ${nav("/importar", "importar", "upload", "Importar / backup")}
+          ${nav("/historico", "historico", "history", "Histórico")}` : ""}
+      </nav>
+      <div class="side-foot">
+        <a href="#/conta" class="me ${active === "conta" ? "active" : ""}"><span class="avatar">${esc(initials(user.nome))}</span>
+          <span class="who"><b>${esc(user.nome)}</b><small>${isAdmin(user) ? "Administrador" : "Técnico"}</small></span>${icon("user", "sm")}</a>
+        <button class="logout" data-act="logout">${icon("logout", "sm")} Sair</button>
+      </div>
+    </aside>
+    <div class="drawer-bg" data-act="drawer-close"></div>
+    <div class="content">
+      <header class="topbar"><button class="btn btn-ghost btn-icon" style="margin-left:-8px;height:36px;width:36px" data-act="drawer-open" aria-label="Abrir menu">${icon("menu")}</button>VTAL Unidades</header>
+      <main class="main">${pg.html}</main>
+    </div>
+  </div>`;
+  pg.bind?.();
+}
+
+/* ---------- ações globais (delegação de eventos) ---------- */
+document.addEventListener("click", async (e) => {
+  const el = e.target.closest("[data-act]");
+  if (!el) {
+    const tr = e.target.closest("tr[data-href]");
+    if (tr && !e.target.closest("a") && !window.getSelection()?.toString()) go(tr.dataset.href);
+    return;
+  }
+  const act = el.dataset.act;
+  if (act === "logout") { await DB.logout(); CURRENT = null; go("/login"); }
+  else if (act === "drawer-open") $(".shell")?.classList.add("open");
+  else if (act === "drawer-close") $(".shell")?.classList.remove("open");
+  else if (act === "toggle-pass") {
+    const inp = el.parentElement.querySelector("input");
+    const show = inp.type === "password";
+    inp.type = show ? "text" : "password";
+    el.innerHTML = icon(show ? "eyeOff" : "eye", "sm");
+  } else if (act === "copy") {
+    try { await navigator.clipboard.writeText(el.dataset.v); } catch {
+      const t = Object.assign(document.createElement("textarea"), { value: el.dataset.v }); document.body.appendChild(t); t.select(); document.execCommand("copy"); t.remove();
+    }
+    el.innerHTML = icon("check"); el.style.color = "var(--green)";
+    setTimeout(() => { el.innerHTML = icon("copy"); el.style.color = ""; }, 1400);
+  } else if (act === "reveal") {
+    const v = el.parentElement.querySelector(".v");
+    const shown = v.dataset.shown === "1";
+    v.textContent = shown ? "••••••••" : el.dataset.v;
+    v.dataset.shown = shown ? "0" : "1";
+    el.innerHTML = icon(shown ? "eye" : "eyeOff");
+  }
+});
+window.addEventListener("hashchange", route);
+
+/* ====================================================================
+   TELAS DE ACESSO
+   ==================================================================== */
+function authLayout(inner) {
+  return `<div class="auth">
+    <section class="auth-art">
+      <div class="row" style="gap:12px">${LOGO}<b style="font-size:18px">VTAL Unidades</b></div>
+      <div><h1>Manutenção das unidades em um só lugar.</h1><p>Consulte NVRs, câmeras, alarmes e o status de cada unidade — com acesso controlado por usuário e por estado.</p></div>
+      <small>Acesso restrito a usuários autorizados.</small>
+    </section>
+    <section class="auth-form"><div class="auth-box"><div class="auth-mobile-brand">${LOGO} VTAL Unidades</div>${inner}</div></section>
+  </div>`;
+}
+
+function renderLogin() {
+  document.title = "Entrar · VTAL Unidades";
+  APP().innerHTML = authLayout(`
+    <h2>Entrar</h2><p class="sub">Use o e-mail e a senha cadastrados pelo administrador.</p>
+    <form id="f-login" novalidate>
+      <div data-form-error></div>
+      <div><label class="label" for="email">E-mail</label><input class="input" id="email" name="email" type="email" autocomplete="username" required placeholder="nome@empresa.com.br"></div>
+      <div><label class="label" for="senha">Senha</label>
+        <div class="input-wrap"><input class="input" id="senha" name="senha" type="password" autocomplete="current-password" required><button type="button" class="eye" data-act="toggle-pass" aria-label="Mostrar senha">${icon("eye", "sm")}</button></div></div>
+      <button class="btn btn-primary btn-block" style="height:44px">Entrar</button>
+    </form>`);
+  const f = $("#f-login");
+  $("#email").focus();
+  f.addEventListener("submit", async (e) => {
+    e.preventDefault();
+    const btn = $("button.btn-primary", f);
+    if (!f.email.value || !f.senha.value) return showErrors(f, { error: "Informe e-mail e senha." });
+    setBusy(btn, true, "Entrando…");
+    const res = await DB.login(f.email.value, f.senha.value);
+    setBusy(btn, false);
+    if (res.ok) { lastPath = null; go("/"); }
+    else { showErrors(f, res); f.senha.value = ""; f.senha.focus(); }
+  });
+}
+
+function renderErroConexao(msg) {
+  document.title = "Sem conexão · VTAL Unidades";
+  APP().innerHTML = `<div style="min-height:100dvh;display:grid;place-items:center;padding:24px"><div class="card" style="max-width:440px;width:100%">
+    ${emptyState("alertCircle", "Não foi possível conectar ao servidor", `${esc(msg)}<br><button class="btn btn-primary mt16" onclick="route()">Tentar novamente</button>`)}</div></div>`;
+}
+
+function passwordForm(id, submitLabel) {
+  return `<form id="${id}" novalidate class="stack" style="--gap:16px">
+    <div data-form-error></div>
+    ${field("Senha atual", `<input class="input" type="password" name="atual" autocomplete="current-password" required>`, { name: "atual" })}
+    ${field("Nova senha", `<input class="input" type="password" name="nova" autocomplete="new-password" required>`, { name: "nova", hint: "Mínimo de 8 caracteres." })}
+    ${field("Confirmar nova senha", `<input class="input" type="password" name="confirmar" autocomplete="new-password" required>`, { name: "confirmar" })}
+    <div><button class="btn btn-primary">${esc(submitLabel)}</button></div>
+  </form>`;
+}
+function bindPasswordForm(id, user, onOk) {
+  const f = $("#" + id);
+  f.addEventListener("submit", async (e) => {
+    e.preventDefault();
+    const res = await DB.trocarSenha(user, f.atual.value, f.nova.value, f.confirmar.value);
+    if (res.ok) { f.reset(); showErrors(f, {}); onOk(); } else showErrors(f, res);
+  });
+}
+
+function renderTrocarSenha(user) {
+  document.title = "Definir nova senha · VTAL Unidades";
+  APP().innerHTML = `<div style="min-height:100dvh;display:grid;place-items:center;padding:24px">
+    <div class="card pad" style="width:100%;max-width:440px">
+      <span style="background:var(--brand-50);color:var(--brand-600);width:40px;height:40px;border-radius:10px;display:grid;place-items:center">${icon("key")}</span>
+      <h1 style="margin-top:16px;font-size:20px;font-weight:600">Defina uma nova senha</h1>
+      <p class="muted" style="margin:4px 0 24px">Olá, ${esc(user.nome.split(" ")[0])}. Por segurança, troque a senha temporária antes de continuar.</p>
+      ${passwordForm("f-first", "Salvar e continuar")}
+      <button class="btn btn-ghost btn-sm mt16" data-act="logout">Sair</button>
+    </div></div>`;
+  bindPasswordForm("f-first", user, () => { toast("Senha definida."); go("/"); });
+}
+
+function pgSemPermissao() {
+  return { title: "Sem permissão", html: `<div class="card mt24">${emptyState("lock", "Você não tem permissão para esta ação", 'Se precisar desse acesso, fale com o administrador.<br><a href="#/" class="btn btn-secondary mt16">Voltar ao painel</a>')}</div>` };
+}
+function pgNaoEncontrado() {
+  return { title: "Não encontrado", html: `<div class="card mt24">${emptyState("search", "Página não encontrada", 'O endereço não existe ou você não tem acesso a ele.<br><a href="#/" class="btn btn-primary mt16">Ir para o painel</a>')}</div>` };
+}
+
+/* ====================================================================
+   PAINEL
+   ==================================================================== */
+async function pgPainel(user) {
+  const nome = esc(user.nome.split(" ")[0]);
+  if (!can(user, "ver")) return { title: "Painel", html: pageHead({ title: `Olá, ${nome}` }) + `<div class="card">${emptyState("shield", "Sem acesso às unidades", "Seu usuário ainda não tem permissão para visualizar unidades. Fale com o administrador.")}</div>` };
+  const st = await DB.stats(user);
+  const sc = ufScope(user);
+  if (!st.total && isAdmin(user)) {
+    return { title: "Painel", html: pageHead({ title: `Olá, ${nome}`, desc: "Ainda não há unidades cadastradas." }) +
+      `<div class="card">${emptyState("sheet", "Comece importando a planilha", 'Traga as unidades e os usuários do sistema antigo em poucos segundos.<br><a href="#/importar" class="btn btn-primary mt16">' + icon("upload", "sm") + ' Importar planilha</a>')}</div>` };
+  }
+  const maxUf = Math.max(1, ...st.porUf.map((r) => r.total));
+  const kpi = (label, val, ic, bg, fg, sub = "", href = "") => `<${href ? `a href="#${href}"` : "div"} class="card kpi">
+      <div class="top">${label}<span class="ico" style="background:${bg};color:${fg}">${icon(ic)}</span></div>
+      <div class="val tnum">${nf.format(val)}</div>${sub ? `<small>${sub}</small>` : ""}</${href ? "a" : "div"}>`;
+  return {
+    title: "Painel",
+    html: pageHead({
+      title: `Olá, ${nome}`,
+      desc: sc === null ? "Visão geral de todas as unidades." : `Visão geral das unidades de ${esc(sc.join(", ") || "nenhuma UF")}.`,
+      actions: can(user, "incluir") ? `<a href="#/unidades/nova" class="btn btn-primary">${icon("plus", "sm")} Nova unidade</a>` : "",
+    }) + `
+    <div class="kpis">
+      ${kpi("Unidades", st.total, "building", "var(--brand-50)", "var(--brand-600)", "", "/unidades")}
+      ${kpi("Ativas", st.ativas, "shield", "var(--green-bg)", "#059669", st.total ? `${Math.round((st.ativas / st.total) * 100)}% do total` : "", "/unidades?status=Ativa")}
+      ${kpi("Com pendência", st.problemas, "alert", "var(--amber-bg)", "#d97706", "Inativas, vandalizadas ou offline", "/unidades?pendencias=1")}
+      ${kpi("Câmeras", st.cameras, "camera", "var(--violet-bg)", "var(--violet)")}
+    </div>
+    <div class="dash">
+      <section class="card">
+        <div class="card-head"><h2>Unidades por UF</h2><span class="muted" style="font-size:12px"><span class="dot st-ativa" style="width:7px;height:7px"></span> ativas</span></div>
+        <div class="bars">${st.porUf.map((r) => `
+          <a class="bar-row" href="#/unidades?uf=${r.uf}">${ufBadge(r.uf)}
+            <div class="bar"><span class="tot" style="width:${(r.total / maxUf) * 100}%"></span><span class="act" style="width:${(r.ativas / maxUf) * 100}%"></span></div>
+            <span class="bar-num tnum"><b>${r.total}</b>${r.ativas !== r.total ? `<span class="muted"> · ${r.total - r.ativas}</span>` : ""}</span></a>`).join("")}
+        </div>
+      </section>
+      <div style="display:flex;flex-direction:column;gap:16px;min-width:0">
+        <section class="card">
+          <div class="card-head"><h2>Status</h2></div>
+          <div class="divide">${st.porStatus.map((s) => `
+            <a class="list-link" href="#/unidades?status=${encodeURIComponent(s.status)}"><span class="dot ${statusClass(s.status)}"></span><span class="grow">${esc(s.status)}</span><b class="tnum">${nf.format(s.total)}</b></a>`).join("")}
+          </div>
+        </section>
+        <section class="card">
+          <div class="card-head"><h2>Atualizadas recentemente</h2><a href="#/unidades?ordem=recentes" class="lnk" style="font-size:12px">Ver todas →</a></div>
+          <div class="divide">${st.recentes.map((r) => `
+            <a class="list-link" href="#/unidades/${r.id}">${ufBadge(r.uf)}<span class="grow"><b>${esc(r.nome)}</b><small>${fmtRel(r.atualizado_em)}${r.atualizado_por ? " · " + esc(r.atualizado_por) : ""}</small></span>${statusBadge(r.status)}</a>`).join("")}
+          </div>
+        </section>
+      </div>
+    </div>`,
+  };
+}
+
+/* ====================================================================
+   UNIDADES — LISTA
+   ==================================================================== */
+let LIST_F = {};
+function filtroFromQuery(q) {
+  const uf = (q.get("uf") || "").toUpperCase();
+  return {
+    q: (q.get("q") || "").slice(0, 100),
+    uf: UFS.includes(uf) ? uf : "",
+    status: STATUS.includes(q.get("status")) ? q.get("status") : "",
+    pendencias: q.get("pendencias") === "1",
+    ordem: ["recentes", "cameras"].includes(q.get("ordem")) ? q.get("ordem") : "",
+    page: Math.max(1, parseInt(q.get("page") || "1", 10) || 1),
+  };
+}
+function filtroToQuery(f, over = {}) {
+  const m = { ...f, ...over };
+  const p = new URLSearchParams();
+  if (m.q) p.set("q", m.q);
+  if (m.uf) p.set("uf", m.uf);
+  if (m.status) p.set("status", m.status);
+  if (m.pendencias) p.set("pendencias", "1");
+  if (m.ordem) p.set("ordem", m.ordem);
+  if (m.page > 1) p.set("page", m.page);
+  const s = p.toString();
+  return s ? "?" + s : "";
+}
+
+async function pgUnidades(user, q) {
+  LIST_F = filtroFromQuery(q);
+  const ufs = await DB.ufsVisiveis(user);
+  const f = LIST_F;
+  const sel = (v, cur) => (v === cur ? "selected" : "");
+  return {
+    title: "Unidades",
+    html: pageHead({
+      title: "Unidades",
+      desc: `<span id="u-count">&nbsp;</span>`,
+      actions: `${can(user, "exportar") ? `<button class="btn btn-secondary" id="b-export">${icon("download", "sm")} Exportar Excel</button>` : ""}
+                ${can(user, "incluir") ? `<a href="#/unidades/nova" class="btn btn-primary">${icon("plus", "sm")} Nova unidade</a>` : ""}`,
+    }) + `
+    <div class="card">
+      <div class="filters">
+        <div class="search">${icon("search", "sm search-icon")}<input id="f-q" type="search" class="input input-search" placeholder="Buscar por nome, Cloud NVR, IP, MAC ou observação…" value="${esc(f.q)}" aria-label="Buscar"></div>
+        <div class="sel">
+          <select id="f-uf" class="input" aria-label="UF"><option value="">Todas UFs</option>${ufs.map((u) => `<option ${sel(u, f.uf)}>${u}</option>`).join("")}</select>
+          <select id="f-st" class="input" aria-label="Status"><option value="">Todos os status</option><option value="__pend" ${f.pendencias ? "selected" : ""}>Com pendência</option>${STATUS.map((s) => `<option ${sel(s, f.status)}>${s}</option>`).join("")}</select>
+          <select id="f-ord" class="input" aria-label="Ordenar"><option value="">Ordenar: UF e nome</option><option value="recentes" ${sel("recentes", f.ordem)}>Mais recentes</option><option value="cameras" ${sel("cameras", f.ordem)}>Mais câmeras</option></select>
+        </div>
+        <button id="f-clear" class="btn btn-ghost hidden">${icon("x", "sm")} Limpar</button>
+      </div>
+      <div id="u-results"></div>
+    </div>`,
+    bind() {
+      const upd = (over) => {
+        LIST_F = { ...LIST_F, ...over, page: over.page ?? 1 };
+        history.replaceState(null, "", "#/unidades" + filtroToQuery(LIST_F));
+        lastPath = "/unidades";
+        renderResults(user);
+      };
+      let t;
+      $("#f-q").addEventListener("input", (e) => { clearTimeout(t); t = setTimeout(() => upd({ q: e.target.value.trim() }), 200); });
+      $("#f-uf").addEventListener("change", (e) => upd({ uf: e.target.value }));
+      $("#f-st").addEventListener("change", (e) => upd(e.target.value === "__pend" ? { status: "", pendencias: true } : { status: e.target.value, pendencias: false }));
+      $("#f-ord").addEventListener("change", (e) => upd({ ordem: e.target.value }));
+      $("#f-clear").addEventListener("click", () => { $("#f-q").value = ""; $("#f-uf").value = ""; $("#f-st").value = ""; $("#f-ord").value = ""; upd({ q: "", uf: "", status: "", pendencias: false, ordem: "" }); });
+      $("#u-results").addEventListener("click", (e) => { const b = e.target.closest("[data-page]"); if (b) { upd({ page: Number(b.dataset.page) }); window.scrollTo({ top: 0, behavior: "smooth" }); } });
+      $("#b-export")?.addEventListener("click", async (e) => {
+        const btn = e.currentTarget;
+        setBusy(btn, true, "Gerando…");
+        try { await exportarExcel(await DB.exportarUnidades(user, LIST_F), user); } catch (err) { toast(err.message, "err"); }
+        setBusy(btn, false);
+      });
+      renderResults(user);
+    },
+  };
+}
+
+async function renderResults(user) {
+  const f = LIST_F;
+  const { rows, total, page, pages } = await DB.listUnidades(user, f);
+  $("#u-count").textContent = `${nf.format(total)} unidade${total === 1 ? "" : "s"} encontrada${total === 1 ? "" : "s"}`;
+  $("#f-clear").classList.toggle("hidden", !(f.q || f.uf || f.status || f.pendencias || f.ordem));
+  const box = $("#u-results");
+  if (!rows.length) { box.innerHTML = emptyState("building", "Nenhuma unidade encontrada", "Ajuste a busca ou os filtros."); return; }
+  const sens = (s) => (s === "INEXISTENTE" ? '<span class="muted" style="font-size:12px">n/a</span>' : esc(s ?? "—"));
+  const from = (page - 1) * PAGE_SIZE + 1, to = Math.min(page * PAGE_SIZE, total);
+  box.innerHTML = `
+    <div class="table-wrap"><table>
+      <thead><tr><th>UF</th><th>Unidade</th><th>Cloud NVR</th><th>IP</th><th class="center">Câm.</th><th class="center">Sens.</th><th>Status</th><th>Atualizado</th></tr></thead>
+      <tbody>${rows.map((u) => `<tr data-href="/unidades/${u.id}">
+        <td>${ufBadge(u.uf)}</td>
+        <td><a class="nm" href="#/unidades/${u.id}">${esc(u.nome)}</a></td>
+        <td class="mono muted">${esc(u.cloud_nvr ?? "—")}</td>
+        <td class="mono muted">${esc(u.ip ?? "—")}</td>
+        <td class="center tnum">${u.qtd_cameras ?? "—"}</td>
+        <td class="center tnum muted">${sens(u.sensores)}</td>
+        <td>${statusBadge(u.status)}</td>
+        <td class="muted" style="font-size:12px;white-space:nowrap">${fmtDT(u.atualizado_em)}</td></tr>`).join("")}
+      </tbody></table></div>
+    <div class="cards divide">${rows.map((u) => `
+      <a class="ucard" href="#/unidades/${u.id}">
+        <div class="l1"><span class="row">${ufBadge(u.uf)}<span class="nm">${esc(u.nome)}</span></span>${statusBadge(u.status)}</div>
+        <div class="l2">${u.ip ? `<span class="mono">${esc(u.ip)}</span>` : ""}${u.cloud_nvr ? `<span class="mono">${esc(u.cloud_nvr)}</span>` : ""}<span class="row" style="gap:4px">${icon("camera", "xs")}${u.qtd_cameras ?? "—"}</span></div>
+      </a>`).join("")}
+    </div>
+    <div class="pager" style="border-top:1px solid var(--s100)">
+      <span class="muted">${from}–${to} de ${nf.format(total)}</span>
+      <span class="row" style="gap:4px">
+        <button class="btn btn-secondary btn-sm btn-icon" ${page <= 1 ? "disabled" : ""} data-page="${page - 1}" aria-label="Anterior">${icon("chevL", "sm")}</button>
+        <span class="tnum muted" style="padding:0 8px">${page} / ${pages}</span>
+        <button class="btn btn-secondary btn-sm btn-icon" ${page >= pages ? "disabled" : ""} data-page="${page + 1}" aria-label="Próxima">${icon("chevR", "sm")}</button>
+      </span>
+    </div>`;
+}
+
+/* ====================================================================
+   UNIDADE — DETALHE
+   ==================================================================== */
+async function pgUnidade(user, id) {
+  const { unidade: u, historico: hist } = await DB.getUnidade(user, id);
+  if (!u) return pgNaoEncontrado();
+  const verSenhas = can(user, "ver_senhas");
+  const row = (label, value, { mono = false, copy = false, secret = false } = {}) => {
+    let c;
+    if (secret && !verSenhas) c = `<span class="restricted">${icon("lock", "xs")} Restrito</span>`;
+    else if (value === null || value === undefined || value === "") c = '<span class="muted">—</span>';
+    else if (secret) c = `<span class="v mono">••••••••</span><button class="icon-btn" data-act="reveal" data-v="${esc(value)}" title="Mostrar" aria-label="Mostrar">${icon("eye")}</button><button class="icon-btn" data-act="copy" data-v="${esc(value)}" title="Copiar" aria-label="Copiar">${icon("copy")}</button>`;
+    else c = `<span class="v ${mono ? "mono" : ""}">${esc(value)}</span>${copy && value !== "INEXISTENTE" ? `<button class="icon-btn" data-act="copy" data-v="${esc(value)}" title="Copiar" aria-label="Copiar">${icon("copy")}</button>` : ""}`;
+    return `<div class="r"><dt>${esc(label)}</dt><dd>${c}</dd></div>`;
+  };
+  const card = (ic, title, body) => `<section class="card"><div class="card-head" style="justify-content:flex-start"><h2 class="card-title"><span class="ico">${icon(ic)}</span>${esc(title)}</h2></div>${body}</section>`;
+  const fv = (v) => { if (v === null || v === undefined || v === "") return "vazio"; const s = String(v); return esc(s.length > 40 ? s.slice(0, 40) + "…" : s); };
+
+  return {
+    title: u.nome,
+    html: pageHead({
+      back: { href: "/unidades", label: "Unidades" },
+      title: `${ufBadge(u.uf)} ${esc(u.nome)}`,
+      desc: `${statusBadge(u.status)} <span>Atualizado em ${fmtDT(u.atualizado_em)}${u.atualizado_por ? " por " + esc(u.atualizado_por) : ""}</span>`,
+      actions: `${can(user, "excluir") ? `<button class="btn btn-danger-outline" id="b-del">${icon("trash", "sm")} Excluir</button>` : ""}
+                ${can(user, "editar") ? `<a href="#/unidades/${u.id}/editar" class="btn btn-primary">${icon("pencil", "sm")} Editar</a>` : ""}`,
+    }) + `
+    <div class="detail">
+      <div class="col">
+        ${card("server", "NVR e câmeras", `<dl class="dl divide" style="margin:0">
+          ${row("Cloud NVR", u.cloud_nvr, { mono: true, copy: true })}
+          ${row("IP", u.ip, { mono: true, copy: true })}
+          ${row("Login", u.login, { mono: true, copy: true })}
+          ${row("Senha do NVR", u.senha, { secret: true })}
+          ${row("HD", u.hd)}
+          ${row("Câmeras", u.qtd_cameras)}</dl>`)}
+        ${card("bell", "Alarme", `<dl class="dl divide" style="margin:0">
+          ${row("MAC do alarme", u.mac_alarme, { mono: true, copy: true })}
+          ${row("Sensores", u.sensores)}
+          ${row("Senha do alarme", u.senha_alarme, { secret: true })}
+          ${row("Acesso da central", u.acesso_central, { secret: true })}
+          ${row("Cadeado bluetooth", u.cadeado_bluetooth === "SIM" ? "Sim" : "Não")}</dl>`)}
+      </div>
+      <div class="col">
+        ${card("file", "Observações", `<p class="obs">${u.observacoes ? esc(u.observacoes) : '<span class="muted">Sem observações.</span>'}</p>`)}
+        ${card("history", "Histórico", hist.length ? `<ol class="timeline">${hist.map((h) => `<li>
+            <p><b style="font-weight:500">${esc(h.usuario_nome || "Sistema")}</b> <span class="muted">${esc(h.acao)}</span></p><small>${fmtDT(h.criado_em)}</small>
+            ${h.acao === "editou" && h.alteracoes ? `<ul class="changes">${Object.entries(h.alteracoes).slice(0, 6).map(([k, d]) => `<li><span class="muted">${esc(CAMPOS[k] || k)}:</span> ${fv(d.de)} → <b style="font-weight:500">${fv(d.para)}</b></li>`).join("")}</ul>` : ""}
+          </li>`).join("")}</ol>` : '<p class="muted" style="padding:16px 20px">Nenhum registro ainda.</p>')}
+      </div>
+    </div>`,
+    bind() {
+      $("#b-del")?.addEventListener("click", async () => {
+        if (!(await confirmar({ titulo: "Excluir unidade?", texto: `A unidade <b>${esc(u.nome)}</b> será removida permanentemente. A exclusão fica registrada no histórico.` }))) return;
+        const r = await DB.excluirUnidade(user, u.id);
+        if (r.ok) { toast("Unidade excluída."); go("/unidades"); } else toast(r.error, "err");
+      });
+    },
+  };
+}
+
+/* ====================================================================
+   UNIDADE — FORMULÁRIO
+   ==================================================================== */
+async function pgFormUnidade(user, id) {
+  const u = id ? (await DB.getUnidade(user, id)).unidade : null;
+  if (id && !u) return pgNaoEncontrado();
+  const ufs = ufScope(user) ?? UFS;
+  const v = (k) => esc(u?.[k] ?? (k === "uf" && !u && ufs.length === 1 ? ufs[0] : ""));
+  const verSenhas = can(user, "ver_senhas");
+  const statuses = [...STATUS, ...(u && !STATUS.includes(u.status) ? [u.status] : [])];
+  const opt = (val, cur, label = val) => `<option value="${esc(val)}" ${val === cur ? "selected" : ""}>${esc(label)}</option>`;
+  const cur = (k, d) => u?.[k] ?? d;
+
+  return {
+    title: u ? `Editar ${u.nome}` : "Nova unidade",
+    html: `<div class="narrow">` + pageHead({ title: u ? `Editar ${esc(u.nome)}` : "Nova unidade", back: u ? { href: `/unidades/${u.id}`, label: u.nome } : { href: "/unidades", label: "Unidades" } }) + `
+      <form id="f-un" novalidate class="stack">
+        <div data-form-error></div>
+        ${section("pin", "Identificação", `<div class="grid g6">
+          ${field("UF", `<select name="uf" class="input"><option value="">—</option>${ufs.map((x) => opt(x, cur("uf", ufs.length === 1 ? ufs[0] : ""))).join("")}</select>`, { cls: "c1", name: "uf" })}
+          ${field("Nome da unidade", `<input name="nome" class="input upper" maxlength="80" autocomplete="off" value="${v("nome")}">`, { cls: "c3", name: "nome", hint: "Ex.: RJ-RJO-VGD" })}
+          ${field("Status", `<select name="status" class="input">${statuses.map((s) => opt(s, cur("status", "Ativa"))).join("")}</select>`, { cls: "c2", name: "status" })}
+          ${field("Cadeado bluetooth", `<select name="cadeado_bluetooth" class="input">${opt("NÃO", cur("cadeado_bluetooth", "NÃO"), "Não")}${opt("SIM", cur("cadeado_bluetooth", "NÃO"), "Sim")}</select>`, { cls: "c2" })}
+        </div>`)}
+        ${section("server", "NVR e câmeras", `<div class="grid g6">
+          ${field("Cloud NVR (serial)", `<input name="cloud_nvr" class="input mono upper" autocomplete="off" value="${v("cloud_nvr")}">`, { cls: "c3" })}
+          ${field("IP", `<input name="ip" class="input mono" inputmode="decimal" autocomplete="off" placeholder="000.000.000.000" value="${v("ip")}">`, { cls: "c3" })}
+          ${field("Login", `<input name="login" class="input mono" autocomplete="off" value="${v("login")}">`, { cls: "c2" })}
+          ${verSenhas ? field("Senha do NVR", secretInput("senha", u?.senha ?? ""), { cls: "c2" }) : ""}
+          ${field("HD", `<input name="hd" class="input upper" autocomplete="off" value="${v("hd")}">`, { cls: "c1", hint: "Ex.: 2TB" })}
+          ${field("Câmeras", `<input name="qtd_cameras" type="number" min="0" max="999" class="input tnum" value="${v("qtd_cameras")}">`, { cls: "c1", name: "qtd_cameras" })}
+        </div>`)}
+        ${section("bell", "Alarme", `<div class="grid g6">
+          ${field("MAC do alarme", `<input name="mac_alarme" class="input mono upper" autocomplete="off" value="${v("mac_alarme")}">`, { cls: "c2", hint: "Use INEXISTENTE se não houver" })}
+          ${field("Sensores", `<input name="sensores" class="input upper" autocomplete="off" list="dl-sens" value="${v("sensores")}"><datalist id="dl-sens"><option value="1"><option value="2"><option value="4"><option value="INEXISTENTE"></datalist>`, { cls: "c2", hint: "Quantidade ou INEXISTENTE" })}
+          ${verSenhas ? field("Senha do alarme", secretInput("senha_alarme", u?.senha_alarme ?? ""), { cls: "c1" }) + field("Acesso da central", secretInput("acesso_central", u?.acesso_central ?? ""), { cls: "c1" }) : ""}
+        </div>`)}
+        ${section("file", "Observações", `<textarea name="observacoes" rows="4" class="input" placeholder="Situação das câmeras, sensores, central, ocorrências…">${v("observacoes")}</textarea>`)}
+        <div class="form-actions sticky">
+          <a href="#${u ? `/unidades/${u.id}` : "/unidades"}" class="btn btn-secondary">Cancelar</a>
+          <button class="btn btn-primary" style="min-width:140px">${u ? "Salvar alterações" : "Cadastrar unidade"}</button>
+        </div>
+      </form></div>`,
+    bind() {
+      const f = $("#f-un");
+      if (!u) f.nome.focus();
+      f.addEventListener("submit", async (e) => {
+        e.preventDefault();
+        const btn = $("button.btn-primary", f);
+        setBusy(btn, true);
+        const res = await DB.salvarUnidade(user, formObj(f), u?.id ?? null);
+        setBusy(btn, false);
+        if (res.ok) { toast(res.semAlteracao ? "Nenhuma alteração para salvar." : u ? "Alterações salvas." : "Unidade cadastrada."); go(`/unidades/${res.id}`); }
+        else showErrors(f, res);
+      });
+    },
+  };
+}
+
+/* ====================================================================
+   USUÁRIOS (admin)
+   ==================================================================== */
+async function pgUsuarios(admin) {
+  const users = await DB.listUsuarios(admin);
+  return {
+    title: "Usuários",
+    html: pageHead({ title: "Usuários", desc: "Defina quem acessa o sistema, quais UFs vê e o que pode fazer.", actions: `<a href="#/usuarios/novo" class="btn btn-primary">${icon("plus", "sm")} Novo usuário</a>` }) + `
+    <div class="card divide">${users.map((u) => {
+      const adm = u.perfil === "admin";
+      return `<a href="#/usuarios/${u.id}" class="urow ${u.ativo ? "" : "off"}">
+        <div class="who"><span class="avatar ${adm ? "av-admin" : "av-user"}" style="width:36px;height:36px">${esc(initials(u.nome))}</span>
+          <div style="min-width:0"><p class="row wrap" style="gap:6px"><b>${esc(u.nome)}</b>
+            ${adm ? '<span class="pill pill-brand">Admin</span>' : ""}${!u.ativo ? '<span class="pill pill-gray">Inativo</span>' : ""}${u.trocar_senha && u.ativo ? '<span class="pill pill-amber">Troca de senha pendente</span>' : ""}</p>
+            <p class="muted" style="overflow:hidden;text-overflow:ellipsis">${esc(u.email)}</p></div></div>
+        <div class="perms"><span class="uf" style="margin-right:4px">${adm || u.todas_ufs ? "Todas UFs" : esc(u.ufs.join(", ") || "Nenhuma UF")}</span>
+          ${adm ? '<span class="muted" style="font-size:12px">Acesso total</span>' : PERMS.filter(([k]) => u[k]).map((p) => `<span class="tag">${p[3]}</span>`).join("")}</div>
+        <div class="last">${u.ultimo_acesso ? fmtRel(u.ultimo_acesso) : "nunca acessou"}</div>
+      </a>`;
+    }).join("")}</div>`,
+  };
+}
+
+async function pgFormUsuario(admin, id) {
+  const u = id ? await DB.getUsuario(admin, id) : null;
+  if (id && !u) return pgNaoEncontrado();
+  const isSelf = u && u.id === admin.id;
+  const isNew = !u;
+  const val = (k, d) => (u ? u[k] : d);
+  const adm = val("perfil", "tecnico") === "admin";
+  const ufs = val("ufs", []);
+  return {
+    title: u ? u.nome : "Novo usuário",
+    html: `<div class="narrow-sm">` + pageHead({
+      title: u ? esc(u.nome) : "Novo usuário",
+      desc: u ? `Criado em ${fmtDT(u.criado_em)} · Último acesso: ${u.ultimo_acesso ? fmtDT(u.ultimo_acesso) : "nunca"}` : "",
+      back: { href: "/usuarios", label: "Usuários" },
+      actions: u && !isSelf ? `<button class="btn btn-danger-outline" id="b-del">${icon("trash", "sm")} Excluir</button>` : "",
+    }) + `
+    <form id="f-us" novalidate class="stack">
+      <div data-form-error></div>
+      ${section("user", "Dados de acesso", `<div class="grid g2">
+        ${field("Nome", `<input class="input" name="nome" value="${esc(val("nome", ""))}">`, { name: "nome" })}
+        ${field("E-mail", `<input class="input" name="email" type="email" autocomplete="off" value="${esc(val("email", ""))}">`, { name: "email" })}
+        ${field("Perfil", `<select class="input" name="perfil" ${isSelf ? "disabled" : ""}>
+            <option value="tecnico" ${!adm ? "selected" : ""}>Técnico — permissões personalizadas</option>
+            <option value="admin" ${adm ? "selected" : ""}>Administrador — acesso total</option></select>${isSelf ? '<input type="hidden" name="perfil" value="admin">' : ""}`, { name: "perfil" })}
+        ${field(isNew ? "Senha inicial" : "Redefinir senha", secretInput("senha", "", `placeholder="${isNew ? "" : "Deixe em branco para manter"}"`), { name: "senha", hint: "Mínimo de 8 caracteres." })}
+      </div>
+      <div class="row wrap mt16" style="gap:12px 32px">
+        ${toggle("ativo", "Usuário ativo", val("ativo", true), isSelf ? "disabled" : "")}
+        ${toggle("trocar_senha", "Exigir troca de senha no próximo acesso", val("trocar_senha", true))}
+      </div>`)}
+      ${section("map", "UFs permitidas", `
+        <p class="muted adm-only ${adm ? "" : "hidden"}">Administradores acessam todas as UFs.</p>
+        <div class="tec-only ${adm ? "hidden" : ""}">
+          ${toggle("todas_ufs", "Todas as UFs", val("todas_ufs", false))}
+          <div id="uf-box" class="mt16 ${val("todas_ufs", false) ? "hidden" : ""}">
+            <div class="uf-grid">${UFS.map((x) => `<label class="chip"><input type="checkbox" name="ufs" value="${x}" ${ufs.includes(x) ? "checked" : ""}>${x}</label>`).join("")}</div>
+            <span class="field-error hidden" data-err="ufs" style="display:block"></span>
+          </div>
+        </div>`)}
+      ${section("shield", "Permissões", `
+        <p class="muted adm-only ${adm ? "" : "hidden"}">Administradores podem tudo, inclusive gerenciar usuários, importar planilhas e ver o histórico.</p>
+        <div class="grid g2 tec-only ${adm ? "hidden" : ""}" style="gap:8px">${PERMS.map(([k, l, d]) => `
+          <label class="perm" data-perm="${k}"><input type="checkbox" name="${k}" ${val(k, k === "pode_ver") ? "checked" : ""}><span><b>${l}</b><small>${d}</small></span></label>`).join("")}
+        </div>`)}
+      <div class="form-actions"><a href="#/usuarios" class="btn btn-secondary">Cancelar</a><button class="btn btn-primary" style="min-width:130px">${isNew ? "Criar usuário" : "Salvar"}</button></div>
+    </form></div>`,
+    bind() {
+      const f = $("#f-us");
+      const sync = () => {
+        const a = $("select[name=perfil]", f).value === "admin";
+        $$(".adm-only", f).forEach((e) => e.classList.toggle("hidden", !a));
+        $$(".tec-only", f).forEach((e) => e.classList.toggle("hidden", a));
+        $("#uf-box").classList.toggle("hidden", f.todas_ufs.checked);
+        const ver = f.pode_ver.checked;
+        $$("[data-perm]", f).forEach((el) => { if (el.dataset.perm !== "pode_ver") el.classList.toggle("disabled", !ver); });
+      };
+      f.addEventListener("change", sync);
+      sync();
+      if (isNew) f.nome.focus();
+      f.addEventListener("submit", async (e) => {
+        e.preventDefault();
+        const o = formObj(f);
+        o.ufs = [].concat(o.ufs || []);
+        if (!o.pode_ver) PERMS.forEach(([k]) => (o[k] = false));
+        const res = await DB.salvarUsuario(admin, o, u?.id ?? null);
+        if (res.ok) { toast("Usuário salvo."); go("/usuarios"); } else showErrors(f, res);
+      });
+      $("#b-del")?.addEventListener("click", async () => {
+        if (!(await confirmar({ titulo: "Excluir usuário?", texto: `O acesso de <b>${esc(u.email)}</b> será removido. Para bloquear só temporariamente, desative o usuário.` }))) return;
+        const r = await DB.excluirUsuario(admin, u.id);
+        if (r.ok) { toast("Usuário excluído."); go("/usuarios"); } else toast(r.error, "err");
+      });
+    },
+  };
+}
+
+/* ====================================================================
+   IMPORTAR / BACKUP (admin)
+   ==================================================================== */
+function pgImportar(admin) {
+  return {
+    title: "Importar / backup",
+    html: `<div class="narrow-sm">` + pageHead({ title: "Importar planilha", desc: "Traga as unidades (e, se quiser, os usuários) da planilha do sistema antigo." }) + `
+    <div class="stack">
+      <div id="imp-result"></div>
+      <form id="f-imp" class="card pad stack" novalidate>
+        <label class="drop" id="drop">
+          <span id="drop-ico" style="color:var(--s400)">${icon("upload", "lg")}</span>
+          <b id="drop-name">Clique ou arraste a planilha (.xlsx)</b>
+          <small>Abas esperadas: UNIDADES e, opcionalmente, USUARIOS — mesmo formato do sistema antigo</small>
+          <input type="file" name="arquivo" accept=".xlsx,.xls" class="sr-only">
+        </label>
+        <fieldset style="border:0;padding:0;margin:0">
+          <legend class="label">Unidades que já existem (mesmo nome)</legend>
+          <div class="grid g2" style="gap:8px">
+            <label class="radio-card"><input type="radio" name="modo" value="atualizar" checked><span><b>Atualizar com os dados da planilha</b><small>A planilha passa a ser a fonte de verdade</small></span></label>
+            <label class="radio-card"><input type="radio" name="modo" value="inserir"><span><b>Manter como estão</b><small>Só cadastra unidades novas</small></span></label>
+          </div>
+        </fieldset>
+        <div style="border:1px solid var(--s200);border-radius:10px;padding:16px">
+          <label class="row" style="align-items:flex-start;gap:12px;cursor:pointer">
+            <input type="checkbox" name="importar_usuarios" style="margin-top:3px;width:16px;height:16px;accent-color:var(--brand-600)">
+            <span><b style="font-weight:500">Importar também a aba USUARIOS</b><br><small class="muted" style="font-size:12px">Perfis, UFs e permissões são trazidos. As senhas antigas <b>não</b> são copiadas: todos recebem a senha temporária abaixo e trocam no primeiro acesso.</small></span>
+          </label>
+          <div id="tmp-box" class="hidden mt16" style="max-width:320px">${field("Senha temporária", `<input class="input mono" name="senha_temporaria" autocomplete="off">`, { name: "senha_temporaria" })}</div>
+        </div>
+        <div data-form-error></div>
+        <div class="row end"><button class="btn btn-primary">${icon("upload", "sm")} Importar</button></div>
+      </form>
+
+      <section class="card pad">
+        <h2 class="card-title" style="margin-bottom:8px"><span class="ico">${icon("db")}</span>Backup dos dados</h2>
+        <p class="muted" style="margin-bottom:16px">Os dados ficam no banco online (Neon), que já guarda o histórico de alterações e permite restaurar o banco para um momento anterior. Se quiser uma cópia sua, baixe o backup — as senhas de login não vão no arquivo.</p>
+        <div class="row wrap">
+          <button class="btn btn-secondary" id="b-backup">${icon("download", "sm")} Baixar backup (.json)</button>
+        </div>
+      </section>
+    </div></div>`,
+    bind() {
+      const f = $("#f-imp");
+      const drop = $("#drop");
+      const setName = () => {
+        const file = f.arquivo.files[0];
+        $("#drop-name").textContent = file ? file.name : "Clique ou arraste a planilha (.xlsx)";
+        $("#drop-ico").innerHTML = icon(file ? "sheet" : "upload", "lg");
+        $("#drop-ico").style.color = file ? "#059669" : "var(--s400)";
+      };
+      f.arquivo.addEventListener("change", setName);
+      ["dragenter", "dragover"].forEach((ev) => drop.addEventListener(ev, (e) => { e.preventDefault(); drop.classList.add("over"); }));
+      ["dragleave", "drop"].forEach((ev) => drop.addEventListener(ev, (e) => { e.preventDefault(); drop.classList.remove("over"); }));
+      drop.addEventListener("drop", (e) => { if (e.dataTransfer.files.length) { f.arquivo.files = e.dataTransfer.files; setName(); } });
+      f.importar_usuarios.addEventListener("change", () => $("#tmp-box").classList.toggle("hidden", !f.importar_usuarios.checked));
+
+      f.addEventListener("submit", async (e) => {
+        e.preventDefault();
+        const file = f.arquivo.files[0];
+        const users = f.importar_usuarios.checked;
+        if (!file) return showErrors(f, { error: "Selecione a planilha .xlsx." });
+        if (users && f.senha_temporaria.value.length < 8) return showErrors(f, { fieldErrors: { senha_temporaria: "Mínimo de 8 caracteres." }, error: "Informe a senha temporária dos usuários." });
+        showErrors(f, {});
+        const btn = $("button.btn-primary", f);
+        setBusy(btn, true, "Lendo planilha…");
+        try {
+          const parsed = await parsePlanilha(file);
+          if (!parsed.unidades.length && !(users && parsed.usuarios.length)) { setBusy(btn, false); return showErrors(f, { error: parsed.avisos[0] || "Nenhuma linha válida encontrada." }); }
+          const r = await DB.importar(admin, parsed, { modo: f.modo.value, importarUsuarios: users, senhaTemp: f.senha_temporaria.value, arquivo: file.name });
+          $("#imp-result").innerHTML = `<section class="card" style="overflow:hidden">
+            <div class="row" style="gap:10px;padding:14px 20px;background:var(--green-bg);color:var(--green-tx);border-bottom:1px solid #d1fae5">${icon("checkCircle")}<b style="font-weight:500">Importação concluída</b></div>
+            <div class="stats3"><div><b class="tnum">${r.inseridas}</b><small>Inseridas</small></div><div><b class="tnum">${r.atualizadas}</b><small>Atualizadas</small></div><div><b class="tnum">${r.ignoradas}</b><small>Ignoradas</small></div></div>
+            <div style="padding:16px 20px;border-top:1px solid var(--s100);color:var(--s600)" class="stack">
+              ${parsed.ipsCorrigidos ? `<p>• ${parsed.ipsCorrigidos} IP(s) corrigidos automaticamente — ex.: 200223200118 → 200.223.200.118 (a planilha antiga tinha transformado em número) e pontos ou textos sobrando.</p>` : ""}
+              ${r.usuarios ? `<p>• Usuários: ${r.usuarios.criados} criado(s), ${r.usuarios.atualizados} atualizado(s)${r.usuarios.ignorados.length ? ", ignorado(s): " + esc(r.usuarios.ignorados.join(", ")) : ""}. Novos usuários trocam a senha temporária no primeiro acesso.</p>` : ""}
+              ${parsed.ignoradas.length ? `<details><summary style="cursor:pointer">Ver linhas ignoradas (${parsed.ignoradas.length})</summary><ul style="margin-top:8px;font-size:12px;max-height:180px;overflow:auto">${parsed.ignoradas.map((d) => `<li>Linha ${d.linha}: ${esc(d.motivo)}</li>`).join("")}</ul></details>` : ""}
+              <div class="row"><a href="#/unidades" class="btn btn-primary">Ver unidades</a>${r.usuarios ? '<a href="#/usuarios" class="btn btn-secondary">Ver usuários</a>' : ""}</div>
+            </div></section>`;
+          f.reset(); setName(); $("#tmp-box").classList.add("hidden");
+          window.scrollTo({ top: 0, behavior: "smooth" });
+        } catch (err) {
+          console.error(err);
+          showErrors(f, { error: err.message || "Não foi possível ler a planilha." });
+        }
+        setBusy(btn, false);
+      });
+
+      $("#b-backup").addEventListener("click", async () => {
+        let b;
+        try { b = await DB.backup(admin); } catch (e) { return toast(e.message, "err"); }
+        baixarArquivo(`vtal-unidades-backup-${new Date().toISOString().slice(0, 10)}.json`, JSON.stringify(b, null, 1), "application/json");
+        toast("Backup baixado.");
+      });
+    },
+  };
+}
+
+/* ====================================================================
+   HISTÓRICO (admin)
+   ==================================================================== */
+async function pgHistorico(admin, q) {
+  const ENT = { unidade: "Unidades", usuario: "Usuários", importacao: "Importações" };
+  const entidade = ENT[q.get("entidade")] ? q.get("entidade") : "";
+  const page = Number(q.get("page")) || 1;
+  const { rows, page: p, pages } = await DB.historico(admin, { entidade, page });
+  const show = (v) => { if (v === null || v === undefined || v === "") return "vazio"; const s = String(v); return esc(s.length > 60 ? s.slice(0, 60) + "…" : s); };
+  const qs = (n) => { const u = new URLSearchParams(); if (entidade) u.set("entidade", entidade); if (n > 1) u.set("page", n); const s = u.toString(); return s ? "?" + s : ""; };
+  return {
+    title: "Histórico",
+    html: pageHead({ title: "Histórico", desc: "Tudo o que foi criado, alterado, excluído ou importado." }) + `
+    <div class="chips"><a href="#/historico" class="${!entidade ? "on" : ""}">Tudo</a>${Object.entries(ENT).map(([k, l]) => `<a href="#/historico?entidade=${k}" class="${entidade === k ? "on" : ""}">${l}</a>`).join("")}</div>
+    <div class="card">${!rows.length ? emptyState("history", "Nenhum registro") : `<div class="divide">${rows.map((r) => `
+      <div class="hrow"><span class="when">${fmtDT(r.criado_em)}</span><div class="what">
+        <p class="row wrap" style="gap:6px"><b style="font-weight:500">${esc(r.usuario_nome || "Sistema")}</b><span class="muted">${esc(r.acao)}</span>${r.uf ? ufBadge(r.uf) : ""}
+          ${r.entidade === "unidade" && r.acao !== "excluiu" && r.existe ? `<a class="lnk" href="#/unidades/${r.entidade_id}">${esc(r.descricao)}</a>` :
+            r.entidade === "usuario" && r.existe ? `<a class="lnk" href="#/usuarios/${r.entidade_id}">${esc(r.descricao)}</a>` : `<span style="font-weight:500">${esc(r.descricao || "")}</span>`}</p>
+        ${r.acao === "editou" && r.alteracoes ? `<ul class="changes">${Object.entries(r.alteracoes).map(([k, d]) => `<li><span class="muted">${esc(CAMPOS[k] || k)}:</span> ${show(d.de)} → <b style="font-weight:500">${show(d.para)}</b></li>`).join("")}</ul>` : ""}
+        ${r.entidade === "importacao" && r.alteracoes ? `<p class="changes">${r.alteracoes.inseridas ?? 0} inseridas · ${r.alteracoes.atualizadas ?? 0} atualizadas · ${r.alteracoes.ignoradas ?? 0} ignoradas</p>` : ""}
+      </div></div>`).join("")}</div>`}
+      ${pages > 1 ? `<div class="pager" style="border-top:1px solid var(--s100);justify-content:flex-end">
+        ${p > 1 ? `<a class="btn btn-secondary btn-sm btn-icon" href="#/historico${qs(p - 1)}" aria-label="Anterior">${icon("chevL", "sm")}</a>` : ""}
+        <span class="tnum muted" style="padding:0 8px">${p} / ${pages}</span>
+        ${p < pages ? `<a class="btn btn-secondary btn-sm btn-icon" href="#/historico${qs(p + 1)}" aria-label="Próxima">${icon("chevR", "sm")}</a>` : ""}</div>` : ""}
+    </div>`,
+  };
+}
+
+/* ====================================================================
+   MINHA CONTA
+   ==================================================================== */
+function pgConta(user) {
+  const perms = [["ver", "Visualizar"], ["incluir", "Incluir"], ["editar", "Editar"], ["excluir", "Excluir"], ["ver_senhas", "Ver senhas"], ["exportar", "Exportar"]];
+  const item = (l, v) => `<div><dt class="muted">${l}</dt><dd style="margin:0;font-weight:500">${v}</dd></div>`;
+  return {
+    title: "Minha conta",
+    html: `<div class="narrow-sm">` + pageHead({ title: "Minha conta" }) + `
+      <div class="grid g2">
+        <section class="card pad"><h2 style="font-size:15px;font-weight:600;margin-bottom:16px">Seu acesso</h2>
+          <dl class="stack" style="margin:0;--x:0">${item("Nome", esc(user.nome))}${item("E-mail", esc(user.email))}${item("Perfil", isAdmin(user) ? "Administrador" : "Técnico")}
+            ${item("UFs", isAdmin(user) || user.todas_ufs ? "Todas" : esc(user.ufs.join(", ") || "Nenhuma"))}
+            ${item("Permissões", `<span class="row wrap" style="gap:6px;margin-top:4px">${perms.filter(([k]) => can(user, k)).map(([, l]) => `<span class="tag">${l}</span>`).join("") || "—"}</span>`)}</dl>
+        </section>
+        <section class="card pad"><h2 style="font-size:15px;font-weight:600;margin-bottom:16px">Alterar senha</h2>${passwordForm("f-pass", "Alterar senha")}</section>
+      </div></div>`,
+    bind() { bindPasswordForm("f-pass", user, () => toast("Senha alterada.")); },
+  };
+}
+
+/* ============================== INÍCIO ============================== */
+route();
+
+</script>
+</body>
+</html>
